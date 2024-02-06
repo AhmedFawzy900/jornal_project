@@ -63,20 +63,20 @@ export default function RightSide(){
                 </div>
 	            <hr/>		        
                 <div class="row margin-bottom-10" id="dv_ju_frq">
-                    <strong class="col-md-7">
+                    <strong class="col">
                      <i class="fa-solid fa-cube"></i> Frequency 
                     </strong>
-                    <div class="col-md-5" >Monthly</div>
+                    <div class="col" >Monthly</div>
                 </div>
                 <div class="row">
-                    <strong class="col-md-7"><i class="fa-solid fa-cube"></i> Print ISSN </strong>
-                    <div class="col-md-5" dir="ltr">
+                    <strong class="col"><i class="fa-solid fa-cube"></i> Print ISSN </strong>
+                    <div class="col" dir="ltr">
                         <a className="tag_a m-0" href="#" target="_blank">0449-2285</a>
                     </div>
                 </div>
                 <div class="row">
-                    <strong class="col-md-7"><i class="fa-solid fa-cube"></i> Online ISSN </strong>
-                    <div class="col-md-5" dir="ltr">
+                    <strong class="col"><i class="fa-solid fa-cube"></i> Online ISSN </strong>
+                    <div class="col" dir="ltr">
                         <a href="#" className="tag_a m-0" target="_blank">2357-0245</a>
                     </div>
                 </div>
