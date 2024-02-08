@@ -1,6 +1,7 @@
 import headImg from '../images/head_en.jpg';
 import '../App.css';
-export default function HeaderImg(){
+import { Link } from 'react-router-dom';
+export default function Header(){
     return(
        <div className="container">
             <img className='headImg w-100' src={headImg} alt="image" />
@@ -12,22 +13,22 @@ export default function HeaderImg(){
                     <div className="nav-content collapse navbar-collapse" id="navbarNavDropdown">
                     <ul class="navbar-nav list">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                            <Link class="nav-link active" aria-current="page" to={'/home'}>Home</Link>
                         </li>
                         <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             jornal info
                         </a>
                         <ul className="dropdown-menu dropmen">
-                            <li><a class="dropdown-item" href="#">About jornal</a></li>
-                            <li><a class="dropdown-item" href="#">Aims and scope</a></li>
-                            <li><a class="dropdown-item" href="#">Editorial Board</a></li>
-                            <li><a class="dropdown-item" href="#">publication</a></li>
-                            <li><a class="dropdown-item" href="#">indexing and abstracting</a></li>
-                            <li><a class="dropdown-item" href="#">related links</a></li>
-                            <li><a class="dropdown-item" href="#">FAQ</a></li>
-                            <li><a class="dropdown-item" href="#">peer review process</a></li>
-                            <li><a class="dropdown-item" href="#">news</a></li>
+                            <li><Link class="dropdown-item" to={'/jornalInfo/about'}>About jornal</Link></li>
+                            <li><Link class="dropdown-item" to={'/jornalInfo/aims'}>Aims and scope</Link></li>
+                            <li><Link class="dropdown-item" to={'/jornalInfo/editorial'}>Editorial Board</Link></li>
+                            <li><Link class="dropdown-item" to={'/jornalInfo/ethics'}>publication ethics</Link></li>
+                            <li><Link class="dropdown-item" to={'/jornalInfo/abstracting'}>indexing and abstracting</Link></li>
+                            <li><Link class="dropdown-item" to={'/jornalInfo/relatedLinks'}>related links</Link></li>
+                            <li><Link class="dropdown-item" to={'/jornalInfo/FAQ'}>FAQ</Link></li>
+                            <li><Link class="dropdown-item" to={'/jornalInfo/peerReview'}>peer review process</Link></li>
+                            <li><Link class="dropdown-item" to={'/jornalInfo/news'}>news</Link></li>
                         </ul>
                         </li>
                         <li class="nav-item">
@@ -37,7 +38,7 @@ export default function HeaderImg(){
                          <a class="nav-link" href="#">CTA</a>
                         </li>
                         <li class="nav-item">
-                         <a class="nav-link" href="#">Guide for Author</a>
+                         <Link class="nav-link" to={'/gidedForAuthor'}>Guide for Author</Link>
                         </li>
                         <li class="nav-item">
                          <a class="nav-link" href="#">Submit manuscript</a>
@@ -47,22 +48,23 @@ export default function HeaderImg(){
                                 Browse
                             </a>
                             <ul className="dropdown-menu dropmen">
-                                <li><a class="dropdown-item" href="#">Current issue</a></li>
-                                <li><a class="dropdown-item" href="#">By issue</a></li>
+                                <li><Link class="dropdown-item" to={'/browse/currentIssue'}>Current issue</Link></li>
+                                <li><Link class="dropdown-item" to={'/browse/ByIssue'}>By issue</Link></li>
                                 <li><a class="dropdown-item" href="#">By subject</a></li>
                                 <li><a class="dropdown-item" href="#"> Author index</a></li>
                                 <li><a class="dropdown-item" href="#">keyword index</a></li>
                             </ul>
                         </li>
                         <li class="nav-item">
-                         <a class="nav-link" href="#">contact us</a>
+                         <Link class="nav-link" to={'/contactUs'}>contact us</Link>
                         </li>
                         <li class="nav-item">
-                         <a class="nav-link" href="#">login</a>
+                         <Link class="nav-link" to={'/login'}>login</Link>
                         </li>
                         <li class="nav-item">
-                         <a class="nav-link" href="#">register</a>
+                         <Link class="nav-link" to={'/register'}>register</Link>
                         </li>
+
                     </ul>
                     </div>
                 </div>
