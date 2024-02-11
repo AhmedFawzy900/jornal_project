@@ -7,7 +7,7 @@ export default function MiddlePart(){
             <p>The Egyptian Journal of Chemistry, a multidisciplinary chemistry journal, is a peer-reviewed international journal, a free access journal and edited by the Egyptian Chemical Society and published monthly by NIDOC. The journal is indexed in Scopus and Emerging Sources Citation Index (ESCI). Manuscripts that truly define the aims of the journal include, the fields of analytical, inorganic, organic, physical chemistry, applied and materials chemistry as well as all other branches of chemistry and its sub-disciplines like pharmaceutical, textile, environmental chemistry, polymer chemistry, food chemistry, petroleum chemistry, and agricultural chemistry, material science etc.</p>
         
         {/* most viewed articals section */}
-        <div class="panel panel-default my_panel-default  panel-shadow">
+        {/* <div class="panel panel-default my_panel-default  panel-shadow">
 					<div class="panel-heading">
 						<b class="panel-title"><i class="fa fa-file"></i> Most Visited Articles</b>
                     </div>
@@ -33,7 +33,7 @@ export default function MiddlePart(){
                          	<a href="#" class="tag_a btn-link" > Sulfonamides: Synthesis and the recent applications in Medicinal Chemistry</a>
                         </div>
                     </div>
-        </div>
+        </div> */}
         {/*end most viewed articals section */}
         {/* main subjects section */}
         <div>
@@ -41,7 +41,7 @@ export default function MiddlePart(){
                 <i class="fa-solid fa-layer-group"></i>
                 <span class="" >
                     Current Issue:  
-                    <span>Volume 67, Issue 4, April 2024</span>
+                    <span>Volume 27, Issue 1, December 2023</span>
                     &nbsp;
                     <a className="file-icon" href="#" title="XML" target="_blank"> 
                         <i class="fa-solid fa-file-pen"></i>

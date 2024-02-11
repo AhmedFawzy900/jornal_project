@@ -471,6 +471,19 @@ font-size: 14px;
 .gided-for-author .smaller-text{
   font-size: 14px;
 }
+.gided-for-author li{
+  margin-top: 10px;
+  font-weight: 500;
+  font-size: 15px;
+}
+.gided-for-author .guide-text{
+  font-weight: 500;
+}
+.gided-for-author .title{
+  font-weight: bold;
+  font-size: 20px;
+  margin-top: 10px;
+}
 /* contact us page */
 .contact-us{
   margin-bottom: 80px;
@@ -691,4 +704,18 @@ div.divider i {
 .issue-p{
   font-size: 20px;
   font-weight: bold;
+}
+/* author template page */
+.author-template button{
+  color: #2e6da4;
+}
+.download-button{
+  border: 0;
+  background: 0;
+  font-weight: bold;
+}
+
+/* cta page */
+.cta p{
+  width:90%;
 }

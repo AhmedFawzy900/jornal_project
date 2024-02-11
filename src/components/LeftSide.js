@@ -1,4 +1,4 @@
-import CoverImg from '../images/cover_en.jpg'
+import CoverImg from '../images/cover.png'
 import CollapseList from './CollapseList';
 
 export default function LeftSide(){

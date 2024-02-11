@@ -21,7 +21,7 @@ export default function Header(){
                         </a>
                         <ul className="dropdown-menu dropmen">
                             <li><Link class="dropdown-item" to={'/jornalInfo/about'}>About jornal</Link></li>
-                            <li><Link class="dropdown-item" to={'/jornalInfo/aims'}>Aims and scope</Link></li>
+                            <li><Link class="dropdown-item" to={'/jornalInfo/aims'}>visions</Link></li>
                             <li><Link class="dropdown-item" to={'/jornalInfo/editorial'}>Editorial Board</Link></li>
                             <li><Link class="dropdown-item" to={'/jornalInfo/ethics'}>publication ethics</Link></li>
                             <li><Link class="dropdown-item" to={'/jornalInfo/abstracting'}>indexing and abstracting</Link></li>
@@ -32,10 +32,10 @@ export default function Header(){
                         </ul>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Author template</a>
+                            <Link class="nav-link" to={'/authorTemplate'}>Author template</Link>
                         </li>
                         <li class="nav-item">
-                         <a class="nav-link" href="#">CTA</a>
+                         <Link class="nav-link" to={'/cta'}>CTA</Link>
                         </li>
                         <li class="nav-item">
                          <Link class="nav-link" to={'/gidedForAuthor'}>Guide for Author</Link>

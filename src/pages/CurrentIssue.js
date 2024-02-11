@@ -31,7 +31,7 @@ export default function CurrentIssue() {
                 <i class="fa-solid fa-layer-group"></i>
                 <span class="" >
                     Current Issue:  
-                    <span>Volume 67, Issue 4, April 2024</span>
+                    <span>Volume 27, Issue 1,December 2023</span>
                     &nbsp;
                     <a className="file-icon" href="#" title="XML" target="_blank"> 
                         <i class="fa-solid fa-file-pen"></i>

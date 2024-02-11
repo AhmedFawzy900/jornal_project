@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function CollapseList(){
     return(
         <div class="panel panel-default my_panel-default ">
@@ -8,18 +10,16 @@ export default function CollapseList(){
                 <li class="list-group-item">
                     <div class="tag_a d-flex align-items-center" data-bs-toggle="collapse" href="#collapse1" aria-expanded="false" aria-controls="collapseExample1">
                         <span className="icon"><i class="fa-solid fa-plus"></i></span>
-                        <span className="collapse-title"> Volume 67 (2024)</span>
+                        <span className="collapse-title"> Volume 27 (2023)</span>
                     </div>
                     <div class="collapse" id="collapse1">
                         <ul class="list-unstyled mt-2">
-                            <li className="mx-4 "><i class="fa-regular fa-file-lines"></i> issue4</li>
-                            <li className="mx-4 "><i class="fa-regular fa-file-lines"></i> issue3</li>
-                            <li className="mx-4 "><i class="fa-regular fa-file-lines"></i> issue2</li>
-                            <li className="mx-4 "><i class="fa-regular fa-file-lines"></i> issue1</li>
+                            <li className="mx-4 "><i class="fa-regular fa-file-lines"></i><Link className='tag_a' to={'/browse/currentIssue'}>issue1</Link> </li>
+
                         </ul>
                     </div>
                 </li>
-                <li class="list-group-item">
+                {/* <li class="list-group-item">
                     <div class="tag_a d-flex align-items-center" data-bs-toggle="collapse" href="#collapse2" aria-expanded="false" aria-controls="collapseExample1">
                         <span className="icon"><i class="fa-solid fa-plus"></i></span>
                         <span className="collapse-title"> Volume 66 (2023)</span>
@@ -283,7 +283,7 @@ export default function CollapseList(){
                             <li className="mx-4 "><i class="fa-regular fa-file-lines"></i> issue1</li>
                         </ul>
                     </div>
-                </li>
+                </li> */}
                 
                 
                     {/* <!-- Add more items here --> */}

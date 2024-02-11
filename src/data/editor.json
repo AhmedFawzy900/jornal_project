@@ -1,0 +1,54 @@
+{
+    "editors": [
+        {
+            "name": "Prof.Hassan Eliwa",
+            "postition": "Editor-in-cheif",
+            "role": "Dean of Faculty of Science, Menoufia University, Egypt",
+            "phone": "",
+            "email": ""
+        },{
+            "name":"Dr. Khaled Elgameel",
+            "postition":"Manageing Editor",
+            "role":"Dean of Faculty of Science, Menoufia University, Egypt",
+            "phone":"+201007235039",
+            "email":"khaled.elgamel@science.menofia.edu.eg"
+        },{
+            "name":"Dr. Ali Fathi Abu-Bakr  ",
+            "postition":"Associate Editor",
+            "role":"Mathematics and Computer Science Department",
+            "phone":"",
+            "email":""
+        },{
+            "name":"Dr. Dalia Fahmy Slima     ",
+            "postition":"Associate Editor",
+            "role":"Botany and Microbiology Department",
+            "phone":"",
+            "email":""
+        },{
+            "name":"Dr. Samah Ibrahim Mohamed El-Ghlban ",
+            "postition":"Associate Editor",
+            "role":"Chemistry Department",
+            "phone":"",
+            "email":""
+        },{
+            "name":"Dr. Marwa Mohammed Nabil Atalla ",
+            "postition":"Associate Editor",
+            "role":"Zoology Departmen",
+            "phone":"",
+            "email":""
+        },{
+            "name":"Dr. Abeer Nowaya ",
+            "postition":"Associate Editor",
+            "role":"Physics Department",
+            "phone":"",
+            "email":""
+        },{
+            "name":"Dr. Hekmat Fawzy ",
+            "postition":"Associate Editor",
+            "role":"Geology Departmen",
+            "phone":"",
+            "email":""
+        }
+    ]
+}
+    
