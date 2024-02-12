@@ -12,54 +12,35 @@ export default function RightSide(){
             <div class="panel-body">
 				<strong><i class="fa fa-cube"></i> Publisher</strong><br />
                 <div>
-                    <a class="block pub_owner tag_a" href="#" target="_blank">National Information and Documentation Centre (NIDOC), Academy of Scientific Research and Technology, ASRT</a>   		
+                    <a class="block pub_owner tag_a" href="#" target="_blank">AL-NOURAS TECH</a>   		
                 </div>
 		        <hr/>
                 <strong class="block margin-top-10"><i class="fa-solid fa-cube"></i> Editor-in-Chief</strong>
                 <div >
-                    <a class="edbb_2 block pub_owner tag_a" href="#">Mohamed Refaat Mahran</a>
+                    <a class="edbb_2 block pub_owner tag_a" href="#">Prof.Hassan Eliwa</a>
                 </div>
-	            <strong class="block margin-top-10"><i class="fa-solid fa-cube"></i> Co-Editor-in-Chief</strong>
+	            <strong class="block margin-top-10"><i class="fa-solid fa-cube"></i>Managing Editor</strong>
                 <div>
-                    <a class="edbb_39 block pub_owner tag_a" href="#">Said Fatouh Hamed</a>
-                    <a class="edbb_39 block pub_owner tag_a" href="#">Hassan Abdel-Gawad Hassan</a>
-                    <a class="edbb_39 block pub_owner tag_a" href="#">Morsy Ahmed El-Apasery</a>
-                    <a class="edbb_39 block pub_owner tag_a" href="#">Ewies Fawzy Ewies</a>
-                </div>
-	            <strong class="block margin-top-10"><i class="fa-solid fa-cube"></i> Editor</strong>
-                <div>
-                    <a class="edbb_31 block pub_owner tag_a" href="#">Elmorsy Khaled</a>
-                    <a class="edbb_31 block pub_owner tag_a" href="#">Ing. Milan S&yacute;s</a>
-                    <a class="edbb_31 block pub_owner tag_a" href="#">Wael Ibrahim Mortada</a>
-                    <a class="edbb_31 block pub_owner tag_a" href="#">Shaymaa Abdalla Ismail</a>
-                    <a class="edbb_31 block pub_owner tag_a" href="#">Sahar Awad Allah Hussein </a>
-                    <a class="edbb_31 block pub_owner tag_a" href="#">Hanan Sayed Ibrahim</a>
-                    <a class="edbb_31 block pub_owner tag_a" href="#">Galal A. M. Nawwar</a>
-                    <a class="edbb_31 block pub_owner tag_a" href="#">Francis Verpoort</a>
-                    <a class="edbb_31 block pub_owner tag_a" href="#">Ammar Labib</a>
-                    <a class="edbb_31 block pub_owner tag_a" href="#">Peter Hesemann</a>
-                    <a class="edbb_31 block pub_owner tag_a" href="#">Mohamed Othman</a>
-                    <a class="edbb_31 block pub_owner tag_a" href="#">Ahmed Kamel El-Ziaty</a>
-                    <a class="edbb_31 block pub_owner tag_a" href="#">Abd Allh Mahrous Abd El-Hamid</a>
-                    <a class="edbb_31 block pub_owner tag_a" href="#">Hisham Abdallah</a>
-                    <a class="edbb_31 block pub_owner tag_a" href="#">El Sayed Yakout</a>
-                    <a class="edbb_31 block pub_owner tag_a" href="#">Hatem A. Abdel Aziz</a>
-                    <a class="edbb_31 block pub_owner tag_a" href="#">Marwa El Hussieny</a>
-                    <a class="edbb_31 block pub_owner tag_a" href="#">Hamdy Zahran</a>
-                    <a class="edbb_31 block pub_owner tag_a" href="#">Samir Kamel	  	</a>
-                    <a class="edbb_31 block pub_owner tag_a" href="#">Amgad Al Bohy </a>
-                    <a class="edbb_31 block pub_owner tag_a" href="#">Sudip Kumar Mandal</a>
-                    <a class="edbb_31 block pub_owner tag_a" href="#">Omnia Elsaid Shahat</a>
-                    <a class="edbb_31 block pub_owner tag_a" href="#">Nady A. Fathy</a>
-                    <a class="edbb_31 block pub_owner tag_a" href="#">Helder T. Gomes</a>
-                    <a class="edbb_31 block pub_owner tag_a" href="#">Salwa El-Sabbagh</a>
-                    <a class="edbb_31 block pub_owner tag_a" href="#">Ahmed Gomaa Hassabo</a>
-                    <a class="edbb_31 block pub_owner tag_a" href="#">Mona M. Amin</a>
-                    <a class="edbb_31 block pub_owner tag_a" href="#">Mahmoud Saleh  </a>
+                    <a class="edbb_31 block pub_owner tag_a" href="#">Dr. Khaled Elgameel</a>
                 </div>
 	            <strong class="block margin-top-10"><i class="fa-solid fa-cube"></i> Assistant Editor</strong>
                 <div>
-                    <a class="edbb_4 block pub_owner tag_a" href="#">Wesam Said Aboul Anin</a>
+                    <a class="edbb_4 block pub_owner tag_a" href="#">Dr. Ali Fathi Abu-Bakr</a>
+                </div>
+                <div>
+                    <a class="edbb_4 block pub_owner tag_a" href="#">Dr. Dalia Fahmy Slima</a>
+                </div>
+                <div>
+                    <a class="edbb_4 block pub_owner tag_a" href="#">Dr. Samah Ibrahim Mohamed El-Ghlban</a>
+                </div>
+                <div>
+                    <a class="edbb_4 block pub_owner tag_a" href="#">Dr. Marwa Mohammed Nabil Atalla</a>
+                </div>
+                <div>
+                    <a class="edbb_4 block pub_owner tag_a" href="#">Dr. Abeer Nowaya</a>
+                </div>
+                <div>
+                    <a class="edbb_4 block pub_owner tag_a" href="#">Dr. Hekmat Fawzy</a>
                 </div>
 	            <hr/>		        
                 <div class="row margin-bottom-10" id="dv_ju_frq">
