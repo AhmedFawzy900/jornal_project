@@ -1,6 +1,6 @@
 import Articls from "../components/Aritcals";
 import CollapseList from "../components/CollapseList";
-import CoverImg from '../images/cover_en.jpg'
+import CoverImg from '../images/cover.png'
 
 export default function CurrentIssue() {
   return (
