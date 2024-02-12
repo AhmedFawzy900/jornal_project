@@ -719,3 +719,59 @@ div.divider i {
 .cta p{
   width:90%;
 }
+
+/* abstract page */
+.abstracPage .title{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.abstracPage .title h3{
+  color: #193687;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.abstracPage .autors h3{
+  font-size: 20px;
+  font-weight: bold;
+}
+.abstracPage .autors h5{
+  font-size: 17px;
+  font-weight: 600;
+  color: #333;
+}
+.abstracPage .positions{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.abstracPage .abstract h3{
+  font-size: 20px;
+  font-weight: bold;
+}
+.abstracPage .abstract p{
+  font-size: 16px;
+  position: relative;
+  padding-left: 17px;
+}
+.abstracPage .abstract p::after{
+  content: "";
+  position: absolute;
+  width: 8px;
+  height: 100%;
+  background-color: #d2d2d2;
+  top: 0;
+  left: 0;
+  bottom: 0;
+
+}
+.abstracPage .keyword h3{
+  font-size: 20px;
+  font-weight: bold;
+}
+.abstracPage .card-text{
+  font-size: 15px;
+}
+.absIcon{
+  margin-right: 5px;
+  color: rgb(255, 48, 48);
+}

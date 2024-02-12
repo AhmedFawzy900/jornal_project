@@ -27,6 +27,8 @@ import CurrentIssue from './pages/CurrentIssue';
 import ByIssue from './pages/ByIssue';
 import Cta from './pages/Cta';
 import AuthorTemplate from './pages/AuthorTemplate';
+import Abstract from './components/Abstract';
+import AbstractPage from './pages/AbstractPage';
 
 function App() {
   return (
@@ -52,6 +54,7 @@ function App() {
           <Route path={'/browse/ByIssue'} element={<ByIssue/>} />
           <Route path={'/cta'} element={<Cta/>} />
           <Route path={'/authorTemplate'} element={<AuthorTemplate/>} />
+          <Route path={'/abstract/:id'} element={<AbstractPage/>} />
         </Routes>
 
         <GoToTop/>

@@ -10,21 +10,33 @@ const generateCaptcha = () => {
   };
   
 export default function Register() {
-  // const [searchTerm, setSearchTerm] = useState('');
-  // const [filteredOptions, setFilteredOptions] = useState(options);
 
-  // const handleSearch = (event) => {
-  //     const searchTerm = event.target.value;
-  //     setSearchTerm(searchTerm);
-  //     const filteredOptions = options.filter((option) =>
-  //     option.toLowerCase().includes(searchTerm.toLowerCase())
-  //     );
-  //     setFilteredOptions(filteredOptions);
-  // };
   const [captcha, setCaptcha] = useState(generateCaptcha());
   const [input, setInput] = useState("");
   const [validationResult, setValidationResult] = useState("");
-
+  const [userInfo,setUserInfo] = useState({
+    id:null,
+    title:'',
+    firstName:'',
+    midName:'',
+    lastName:'',
+    degree:'',
+    position:'',
+    spacifily:'',
+    fieldStudy:'',
+    phone:'',
+    mobile:'',
+    fax:'',
+    postalCode:'',
+    homePage:'',
+    Affiliation:'',
+    orcid:'',
+    email:'',
+    altEmail:'',
+    username:'',
+    password:'',
+    comment:''
+  });
   const handleChange = (event) => {
     setInput(event.target.value);
   };
@@ -33,7 +45,7 @@ export default function Register() {
     event.preventDefault();
     // Check if the input matches the CAPTCHA code
     if (input.toUpperCase() === captcha.toUpperCase()) {
-      setValidationResult("success");
+      console.log(userInfo);
     } else {
       setValidationResult("failed");
       // Generate a new CAPTCHA code
@@ -47,7 +59,7 @@ export default function Register() {
       <div>
         <h3 className="about-title">Register</h3>
       </div>
-      <form>
+      <form onSubmit={handleSubmit}>
         <div className="row">
           {/* left side */}
           <div className="container col-md-7">
@@ -58,14 +70,14 @@ export default function Register() {
                 <Row className="mb-3">
                   <Form.Group
                     as={Col}
-                    className="col-md-6"
+                    className="my-2 col-md-6 col-sm-12"
                     controlId="formGridEmail"
                   >
                     <Form.Label>
                       Title<span className="text-danger">*</span>
                     </Form.Label>
-                    <Form.Select aria-label="Default select example">
-                      <option>--Select--</option>
+                    <Form.Select aria-label="Default select example" onChange={(e)=>setUserInfo({...userInfo,title:e.target.value})}>
+                      <option disabled selected>--Select--</option>
                       <option value="dr">Dr.</option>
                       <option value="prof">Prof.</option>
                       <option value="mr">Mr.</option>
@@ -76,7 +88,7 @@ export default function Register() {
                 <Row className="mb-3">
                   <Form.Group
                     as={Col}
-                    className="col-md-6"
+                    className="my-2 col-md-6 col-sm-12"
                     controlId="formGridEmail"
                   >
                     <Form.Label>
@@ -84,6 +96,7 @@ export default function Register() {
                     </Form.Label>
                     <InputGroup>
                       <Form.Control
+                        onChange={(e)=>setUserInfo({...userInfo,firstName:e.target.value})}
                         type="text"
                         placeholder="Enter first name"
                       />
@@ -94,24 +107,24 @@ export default function Register() {
                   </Form.Group>
                   <Form.Group
                     as={Col}
-                    className="col-md-2"
+                    className="my-2 col-md-2 col-sm-12"
                     controlId="formGridEmail"
                   >
                     <Form.Label>
                       mid<span className="text-danger">*</span>
                     </Form.Label>
-                    <Form.Control type="text" />
+                    <Form.Control onChange={(e)=>setUserInfo({...userInfo,midName:e.target.value})} type="text" />
                   </Form.Group>
                   <Form.Group
                     as={Col}
-                    className="col-md-4"
+                    className="my-2 col-md-4"
                     controlId="formGridEmail"
                   >
                     <Form.Label>
                       last name<span className="text-danger">*</span>
                     </Form.Label>
                     <InputGroup>
-                      <Form.Control type="text" />
+                      <Form.Control onChange={(e)=>setUserInfo({...userInfo,lastName:e.target.value})} type="text" />
                       <InputGroup.Text>
                         <i class="icon fa-solid fa-user"></i>
                       </InputGroup.Text>
@@ -121,14 +134,14 @@ export default function Register() {
                 <Row className="mb-3">
                   <Form.Group
                     as={Col}
-                    className="col-md-6"
+                    className="my-2 col-md-6 col-sm-12"
                     controlId="formGridEmail"
                   >
                     <Form.Label>
                       Degree<span className="text-danger">*</span>
                     </Form.Label>
-                    <Form.Select aria-label="Default select example">
-                      <option>--Select--</option>
+                    <Form.Select aria-label="Default select example" onChange={(e)=>setUserInfo({...userInfo,degree:e.target.value})} >
+                      <option disabled selected>--Select--</option>
                       <option value="phd">ph.D.</option>
                       <option value="md">MD</option>
                       <option value="phdcand">ph.D. Candidate</option>
@@ -140,14 +153,14 @@ export default function Register() {
                   </Form.Group>
                   <Form.Group
                     as={Col}
-                    className="col-md-6"
+                    className="my-2 col-md-6 col-sm-12"
                     controlId="formGridEmail"
                   >
                     <Form.Label>
                       position<span className="text-danger">*</span>
                     </Form.Label>
-                    <Form.Select aria-label="Default select example">
-                      <option>--Select--</option>
+                    <Form.Select aria-label="Default select example" onChange={(e)=>setUserInfo({...userInfo,position:e.target.value})} >
+                      <option selected disabled>--Select--</option>
                       <option value="professor">professor</option>
                       <option value="assprofessor">associate professor</option>
                       <option value="asstantprofessor">
@@ -161,12 +174,12 @@ export default function Register() {
                 <Row className="mb-3">
                   <Form.Group
                     as={Col}
-                    className="col-md-6"
+                    className="my-2 col-md-6 col-sm-12"
                     controlId="formGridEmail"
                   >
                     <Form.Label>spacifilty</Form.Label>
-                    <Form.Select aria-label="Default select example">
-                      <option>--Select--</option>
+                    <Form.Select aria-label="Default select example" onChange={(e)=>setUserInfo({...userInfo,spacifily:e.target.value})} >
+                      <option selected disabled>--Select--</option>
                       <option value="analytical">Analytical chemistry</option>
                       <option value="biochemistry">Biochemistry</option>
                       <option value="elctro">Elecrochemistry</option>
@@ -180,10 +193,10 @@ export default function Register() {
                       <option value="other">other</option>
                     </Form.Select>
                   </Form.Group>
-                  <Form.Group as={Col}>
+                  <Form.Group className="my-2" as={Col}>
                     <Form.Label>spacify field of study</Form.Label>
                     <InputGroup>
-                      <Form.Control type="text" />
+                      <Form.Control type="text" onChange={(e)=>setUserInfo({...userInfo,fieldStudy:e.target.value})} />
                       <InputGroup.Text>
                         <i class="icon fa-solid fa-graduation-cap"></i>
                       </InputGroup.Text>
@@ -191,23 +204,23 @@ export default function Register() {
                   </Form.Group>
                 </Row>
                 <Row className="mb-3">
-                  <Form.Group as={Col}>
+                  <Form.Group className="my-2 col-md-6 col-sm-12" as={Col}>
                     <Form.Label>
                       Phone<span className="text-danger">*</span>
                     </Form.Label>
                     <InputGroup>
-                      <Form.Control type="text" />
+                      <Form.Control type="text" onChange={(e)=>setUserInfo({...userInfo,phone:e.target.value})} />
                       <InputGroup.Text>
                         <i class="icon fa-solid fa-phone"></i>
                       </InputGroup.Text>
                     </InputGroup>
                   </Form.Group>
-                  <Form.Group as={Col}>
+                  <Form.Group className="my-2 col-md-6 col-sm-12" as={Col}>
                     <Form.Label>
                       mobile<span className="text-danger"></span>
                     </Form.Label>
                     <InputGroup>
-                      <Form.Control type="text" />
+                      <Form.Control type="text" onChange={(e)=>setUserInfo({...userInfo,mobile:e.target.value})} />
                       <InputGroup.Text>
                         <i class="icon fa-solid fa-mobile"></i>
                       </InputGroup.Text>
@@ -215,12 +228,13 @@ export default function Register() {
                   </Form.Group>
                 </Row>
                 <Row className="mb-3">
-                  <Form.Group as={Col}>
+                  <Form.Group className="my-2 col-md-6 col-sm-12" as={Col}>
                     <Form.Label>
                       Fax<span className="text-danger"></span>
                     </Form.Label>
                     <InputGroup>
                       <Form.Control
+                      onChange={(e)=>setUserInfo({...userInfo,fax:e.target.value})}
                         type="text"
                         placeholder="Enter first name"
                       />
@@ -229,12 +243,13 @@ export default function Register() {
                       </InputGroup.Text>
                     </InputGroup>
                   </Form.Group>
-                  <Form.Group as={Col}>
+                  <Form.Group className="my-2 col-md-6 col-sm-12" as={Col}>
                     <Form.Label>
                       home page<span className="text-danger"></span>
                     </Form.Label>
                     <InputGroup>
                       <Form.Control
+                      onChange={(e)=>setUserInfo({...userInfo,homePage:e.target.value})}
                         type="text"
                         placeholder="Enter first name"
                       />
@@ -245,35 +260,25 @@ export default function Register() {
                   </Form.Group>
                 </Row>
                 <Row className="mb-3">
-                  <Form.Group as={Col}>
+                  <Form.Group className="my-2 col-md-6 col-sm-12" as={Col}>
                     <Form.Label>
                       Postal code<span className="text-danger"></span>
                     </Form.Label>
                     <InputGroup>
-                      <Form.Control type="text" />
+                      <Form.Control type="text" onChange={(e)=>setUserInfo({...userInfo,postalCode:e.target.value})} />
                       <InputGroup.Text>
                         <i class="icon fa-solid fa-location-dot"></i>
                       </InputGroup.Text>
                     </InputGroup>
                   </Form.Group>
-                  <Form.Group as={Col}>
-                    <Form.Label>
-                      home page<span className="text-danger"></span>
-                    </Form.Label>
-                    <InputGroup>
-                      <Form.Control type="text" />
-                      <InputGroup.Text>
-                        <i class="icon fa-solid fa-map"></i>
-                      </InputGroup.Text>
-                    </InputGroup>
-                  </Form.Group>
                 </Row>
                 <Row className="mb-3">
-                  <Form.Group as={Col}>
+                  <Form.Group className="my-2 col-md-6 col-sm-12" as={Col}>
                     <Form.Label>
                       Affiliation<span className="text-danger">*</span>
                     </Form.Label>
                     <Form.Control
+                    onChange={(e)=>setUserInfo({...userInfo,Affiliation:e.target.value})}
                       as="textarea"
                       placeholder="Leave a comment here"
                       style={{ height: "100px" }}
@@ -293,7 +298,7 @@ export default function Register() {
                   <Form.Group as={Col} controlId="formGridEmail">
                     <Form.Label>ORCID</Form.Label>
                     <InputGroup>
-                      <Form.Control type="text" />
+                      <Form.Control type="text" onChange={(e)=>setUserInfo({...userInfo,orcid:e.target.value})} />
                       <InputGroup.Text>
                         <i class="icon fa-solid fa-id-card-clip"></i>
                       </InputGroup.Text>
@@ -306,33 +311,21 @@ export default function Register() {
                       Email Address<span className="text-danger">*</span>
                     </Form.Label>
                     <InputGroup>
-                      <Form.Control type="text" />
+                      <Form.Control type="text" onChange={(e)=>setUserInfo({...userInfo,email:e.target.value})} />
                       <InputGroup.Text>
                         <i class="icon fa-solid fa-envelope"></i>
                       </InputGroup.Text>
                     </InputGroup>
                   </Form.Group>
                 </Row>
-                <Row className="mb-3">
-                  <Form.Group as={Col} controlId="formGridEmail">
-                    <Form.Label>
-                      Confirm Email<span className="text-danger">*</span>
-                    </Form.Label>
-                    <InputGroup>
-                      <Form.Control type="text" />
-                      <InputGroup.Text>
-                        <i class="icon fa-solid fa-envelope"></i>
-                      </InputGroup.Text>
-                    </InputGroup>
-                  </Form.Group>
-                </Row>
+               
                 <Row className="mb-3">
                   <Form.Group as={Col} controlId="formGridEmail">
                     <Form.Label>
                       Alternative Email<span className="text-danger">*</span>
                     </Form.Label>
                     <InputGroup>
-                      <Form.Control type="text" />
+                      <Form.Control type="text" onChange={(e)=>setUserInfo({...userInfo,altEmail:e.target.value})} />
                       <InputGroup.Text>
                         <i class="icon fa-solid fa-envelope"></i>
                       </InputGroup.Text>
@@ -345,11 +338,37 @@ export default function Register() {
                       Username <span className="text-danger">*</span>
                     </Form.Label>
                     <InputGroup>
-                      <Form.Control type="text" />
+                      <Form.Control type="text" onChange={(e)=>setUserInfo({...userInfo,username:e.target.value})} />
                       <InputGroup.Text>
                         <i class="icon fa-solid fa-user"></i>
                       </InputGroup.Text>
                     </InputGroup>
+                  </Form.Group>
+                </Row>
+                <Row className="mb-3">
+                  <Form.Group as={Col} controlId="formGridEmail">
+                    <Form.Label>
+                      Password<span className="text-danger">*</span>
+                    </Form.Label>
+                    <InputGroup>
+                      <Form.Control type="password" onChange={(e)=>setUserInfo({...userInfo,password:e.target.value})} />
+                      <InputGroup.Text>
+                        <i class="icon fa-solid fa-envelope"></i>
+                      </InputGroup.Text>
+                    </InputGroup>
+                  </Form.Group>
+                </Row>
+                <Row className="mb-3">
+                  <Form.Group as={Col}>
+                    <Form.Label>
+                      comment<span className="text-danger"></span>
+                    </Form.Label>
+                    <Form.Control
+                    onChange={(e)=>setUserInfo({...userInfo,comment:e.target.value})}
+                      as="textarea"
+                      placeholder="Leave a comment here"
+                      style={{ height: "70px" }}
+                    />
                   </Form.Group>
                 </Row>
                 <Row>
@@ -363,6 +382,7 @@ export default function Register() {
                     </label>
                   </div>
                 </Row>
+              
                 <Row>
                   <div class="form-group mb-3">
                     <label class="control-label mx-1">
@@ -375,18 +395,7 @@ export default function Register() {
                     </label>
                   </div>
                 </Row>
-                <Row className="mb-3">
-                  <Form.Group as={Col}>
-                    <Form.Label>
-                      comment<span className="text-danger"></span>
-                    </Form.Label>
-                    <Form.Control
-                      as="textarea"
-                      placeholder="Leave a comment here"
-                      style={{ height: "70px" }}
-                    />
-                  </Form.Group>
-                </Row>
+                
                 <Row className="mb-3">
                   {/* start captcha */}
                   <div>

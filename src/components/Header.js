@@ -1,4 +1,4 @@
-import headImg from '../images/head_en.jpg';
+import headImg from '../images/header_image.jpeg';
 import '../App.css';
 import { Link } from 'react-router-dom';
 export default function Header(){
