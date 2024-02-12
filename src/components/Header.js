@@ -24,11 +24,6 @@ export default function Header(){
                             <li><Link class="dropdown-item" to={'/jornalInfo/aims'}>visions</Link></li>
                             <li><Link class="dropdown-item" to={'/jornalInfo/editorial'}>Editorial Board</Link></li>
                             <li><Link class="dropdown-item" to={'/jornalInfo/ethics'}>publication ethics</Link></li>
-                            <li><Link class="dropdown-item" to={'/jornalInfo/abstracting'}>indexing and abstracting</Link></li>
-                            <li><Link class="dropdown-item" to={'/jornalInfo/relatedLinks'}>related links</Link></li>
-                            <li><Link class="dropdown-item" to={'/jornalInfo/FAQ'}>FAQ</Link></li>
-                            <li><Link class="dropdown-item" to={'/jornalInfo/peerReview'}>peer review process</Link></li>
-                            <li><Link class="dropdown-item" to={'/jornalInfo/news'}>news</Link></li>
                         </ul>
                         </li>
                         <li class="nav-item">
@@ -41,7 +36,7 @@ export default function Header(){
                          <Link class="nav-link" to={'/gidedForAuthor'}>Guide for Author</Link>
                         </li>
                         <li class="nav-item">
-                         <a class="nav-link" href="#">Submit manuscript</a>
+                         <Link class="nav-link" to={'/login'}>Submit manuscript</Link>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -49,7 +44,7 @@ export default function Header(){
                             </a>
                             <ul className="dropdown-menu dropmen">
                                 <li><Link class="dropdown-item" to={'/browse/currentIssue'}>Current issue</Link></li>
-                                <li><Link class="dropdown-item" to={'/browse/ByIssue'}>By issue</Link></li>
+                                <li><Link class="dropdown-item" to={'#'}>By issue</Link></li>
                                 <li><a class="dropdown-item" href="#">By subject</a></li>
                                 <li><a class="dropdown-item" href="#"> Author index</a></li>
                                 <li><a class="dropdown-item" href="#">keyword index</a></li>

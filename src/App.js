@@ -37,6 +37,7 @@ function App() {
         <Header />
         <Routes>
           <Route path={'/home'} element={<Home/>} />
+          <Route path={'/'} element={<Home/>} />
           <Route path={'/jornalInfo/about'} element={<AboutJor/>} />
           <Route path={'/jornalInfo/aims'} element={<Aims/>} />
           <Route path={'/jornalInfo/editorial'} element={<EditorialJor/>} />
