@@ -16,14 +16,13 @@ export default function Articls(){
           return(
             <div class='artical'>    
                 <h5 class="margin-bottom-6 list-article-title ltr">
-                    <a class="tag_a artical-title btn-link" href="#">{item.title}</a>
+                    <Link class="tag_a artical-title btn-link" to={`/abstract/${item.id}`}>{item.title}</Link>
                 </h5>
                 <p class="margin-bottom-3">Pages <span >1-6</span></p>   
-                <p class="margin-bottom-3 ltr" id="ar_doi"><span className="dio">dio</span> <span dir="ltr"><Link target="_blank" to={`/abstract/${item.id}`} className="btn-link" >10.21608/ejchem.2023.246109.8810</Link></span></p>
                 <p class="margin-bottom-3 ltr" >{item.authors}</p>
                 <ul class="list-inline size-12 margin-top-10 margin-bottom-3 size-14">
-                <li ><a href="#" > View Article</a></li>
-                <li><Link target="_blank" to={item.pdf_path} className="download-button" ><i class="fa-regular fa-file-pdf text-red"></i> PDF 1.6 M</Link></li>
+                <li ><Link target="_blank" to={`/abstract/${item.id}`} className="btn-link tag_a " >view artical</Link></li>
+                <li><Link target="_blank" to={item.pdf_path} className="download-button" ><i class="fa-regular fa-file-pdf text-red"></i> See PDF</Link></li>
                 </ul>
                 <hr/>
             </div>  

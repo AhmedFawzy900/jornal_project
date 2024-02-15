@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Col, Form, InputGroup, Row } from "react-bootstrap";
+import { useNavigate } from "react-router";
 const generateCaptcha = () => {
     const characters = "ABCDE123FGHIJKLM4N56OPQRSTUVW789XY145Zabcdefg7582hijklmnop4785qrstuvwxyz123456789";
     let captcha = "";
@@ -14,6 +15,7 @@ export default function Register() {
   const [captcha, setCaptcha] = useState(generateCaptcha());
   const [input, setInput] = useState("");
   const [validationResult, setValidationResult] = useState("");
+  const navigate = useNavigate();
   const [userInfo,setUserInfo] = useState({
     id:null,
     title:'',
@@ -46,6 +48,8 @@ export default function Register() {
     // Check if the input matches the CAPTCHA code
     if (input.toUpperCase() === captcha.toUpperCase()) {
       console.log(userInfo);
+      localStorage.setItem("userInfo", JSON.stringify(userInfo));
+      navigate("/login");
     } else {
       setValidationResult("failed");
       // Generate a new CAPTCHA code
@@ -55,7 +59,7 @@ export default function Register() {
     setInput("");
   };
   return (
-    <div className="container register">
+    <div className="container register my-3">
       <div>
         <h3 className="about-title">Register</h3>
       </div>

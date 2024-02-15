@@ -3,14 +3,21 @@ import abstracts from "../data/abstract.json";
 import articleData from '../data/articals.json';
 
 import img from "../images/cover.png";
-import { Link } from "react-router-dom";
+import { Link} from "react-router-dom";
+
+
 export default function AbstractPage() {
   const id = useParams("id");
   const itemMatched = abstracts.abstract.find((e) => e.id == id.id);
   const pdfLinks = articleData.articals.find((e)=> e.id == id.id);
 
+  const goBack = () => {
+    window.history.back();
+  };
   return (
     <div className="container row abstracPage">
+       {/* back button */}
+       <button className="back-btn" onClick={goBack}><i class="fa-solid fa-arrow-left"></i>back</button>
       {itemMatched && (
         <div className="col-lg-9 col-md-12">
           <div className="title">

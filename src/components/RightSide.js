@@ -12,14 +12,14 @@ export default function RightSide(){
             <div class="panel-body">
 				<strong><i class="fa fa-cube"></i> Publisher</strong><br />
                 <div>
-                    <a class="block pub_owner tag_a" href="#" target="_blank">AL-NOURAS TECH</a>   		
+                    <a class="block pub_owner tag_a" href="#" target="_blank">The Faculty of Science at Menoufia University</a>   		
                 </div>
 		        <hr/>
                 <strong class="block margin-top-10"><i class="fa-solid fa-cube"></i> Editor-in-Chief</strong>
                 <div >
-                    <a class="edbb_2 block pub_owner tag_a" href="#">Prof.Hassan Eliwa</a>
+                    <a class="edbb_2 block pub_owner tag_a" href="#">Prof. Hassan Eliwa</a>
                 </div>
-	            <strong class="block margin-top-10"><i class="fa-solid fa-cube"></i>Managing Editor</strong>
+	            <strong class="block margin-top-10"><i class="fa-solid fa-cube"></i> Managing Editor</strong>
                 <div>
                     <a class="edbb_31 block pub_owner tag_a" href="#">Dr. Khaled Elgameel</a>
                 </div>
@@ -31,10 +31,10 @@ export default function RightSide(){
                     <a class="edbb_4 block pub_owner tag_a" href="#">Dr. Dalia Fahmy Slima</a>
                 </div>
                 <div>
-                    <a class="edbb_4 block pub_owner tag_a" href="#">Dr. Samah Ibrahim Mohamed El-Ghlban</a>
+                    <a class="edbb_4 block pub_owner tag_a" href="#">Dr. Samah El-Ghlban</a>
                 </div>
                 <div>
-                    <a class="edbb_4 block pub_owner tag_a" href="#">Dr. Marwa Mohammed Nabil Atalla</a>
+                    <a class="edbb_4 block pub_owner tag_a" href="#">Dr. Marwa Atalla</a>
                 </div>
                 <div>
                     <a class="edbb_4 block pub_owner tag_a" href="#">Dr. Abeer Nowaya</a>
@@ -69,18 +69,18 @@ export default function RightSide(){
             {/* end search */}
 
             {/* abstracting section */}
-            <Abstract/>
+            {/* <Abstract/> */}
             {/* end abstracting section */}
 
             {/* start announmet */}
             
-            <div class="mb-4"> 
+            {/* <div class="mb-4"> 
                 <div>
                     <a href="#" target="_blank" > 
                         <img class="style_ads" src={annImage} data-container="body" data-toggle="popover" data-trigger="hover" data-placement="top" data-content="" title="Announcement" />
                     </a>
                 </div>
-            </div>	
+            </div>	 */}
             {/* start announmet */}
         </div>
     );

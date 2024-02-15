@@ -29,6 +29,8 @@ import Cta from './pages/Cta';
 import AuthorTemplate from './pages/AuthorTemplate';
 import Abstract from './components/Abstract';
 import AbstractPage from './pages/AbstractPage';
+import SubmitReasearch from './pages/SubmitResearch';
+import { history } from './routerConfig';
 
 function App() {
   return (
@@ -56,6 +58,7 @@ function App() {
           <Route path={'/cta'} element={<Cta/>} />
           <Route path={'/authorTemplate'} element={<AuthorTemplate/>} />
           <Route path={'/abstract/:id'} element={<AbstractPage/>} />
+          <Route path={'/submitManuscript'} element={<SubmitReasearch/>} />
         </Routes>
 
         <GoToTop/>

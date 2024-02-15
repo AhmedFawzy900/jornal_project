@@ -1,5 +1,5 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {} from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import logo from '../images/Al Nouras.jpg';
 
 export default function Footer(){
     return(
@@ -75,6 +75,10 @@ export default function Footer(){
                                 <i class="fa fa-rss-square" aria-hidden="true"></i>
                             </a>
                     </div>
+                    {/* logo */}
+                    <div class="footer-logo col-md-6">
+                        <img src={logo} className='w-100' alt="" />
+                    </div>
                 </div>
 
 			</div>
@@ -82,7 +86,7 @@ export default function Footer(){
 				<div class="copyright">
 
 						<ul class="nomargin list-inline mobile-block">
-							<li>&copy; Journal Management System. <span id='sp_crt'>Powered by <a target='_blank' href='#'>NotionWave</a></span></li>
+							<li>&copy; Copyright 2024. <span id='sp_crt'>Powered by <a target='_blank' href='#'>AL-NOURAS</a></span></li>
 						</ul>
 
 				</div>

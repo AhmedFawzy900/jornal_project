@@ -3,7 +3,8 @@ import Articls from "./Aritcals";
 export default function MiddlePart() {
   return (
     <div className="middle-part col-lg-5 col-md-6 col-sm-12">
-      <h4>Scientific Journal of Facalty of Science</h4>
+      <h5 className="my-2">Scientific Journal of Facalty of Science</h5>
+      <h5 className="text-center" >( Menoufia University )</h5>
       <p>
         The Faculty of Science at Menoufia University publishes a scientific
         journal periodically with the aim of disseminating scientific research
@@ -45,7 +46,7 @@ export default function MiddlePart() {
         </div> */}
       {/*end most viewed articals section */}
       {/* main subjects section */}
-      <div>
+      <div className="my-4">
         <b class="page-header  margin-top-50">
           <i class="fa-solid fa-layer-group"></i>
           <span class="">

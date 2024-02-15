@@ -32,31 +32,31 @@ export default function LeftSide(){
                                 </tr>
                                 <tr>
                                     <td>Number of&nbsp;Volumes</td>
-                                    <td>&nbsp;15</td>
+                                    <td>1</td>
                                 </tr>
                                 <tr>
                                     <td>Number of&nbsp;Issues</td>
-                                    <td>&nbsp;124</td>
+                                    <td>1</td>
                                 </tr>
                                 <tr>
                                     <td>Number of Articles</td>
-                                    <td>&nbsp;4,278</td>
+                                    <td>8</td>
                                 </tr>
                                 <tr>
                                     <td>Article View</td>
-                                    <td>&nbsp;1,888,796</td>
+                                    <td>0</td>
                                 </tr>
                                 <tr>
                                     <td>PDF Download</td>
-                                    <td>&nbsp;1,424,460</td>
+                                    <td>0</td>
                                 </tr>
                                 <tr>
                                     <td>View Per Article</td>
-                                    <td>&nbsp;441.51</td>
+                                    <td>0</td>
                                 </tr>
                                 <tr>
                                     <td>PDF Download Per Article</td>
-                                    <td>&nbsp;332.97</td>
+                                    <td>0</td>
                                 </tr>
                             </tbody>
                         </table>    

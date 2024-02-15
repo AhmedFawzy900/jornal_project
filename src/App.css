@@ -82,7 +82,11 @@
   }
   
 }
-
+.logout{
+  border: 0 !important;
+  background: 0 !important;
+  color: white !important;
+}
 
 /* left side style */
 .left-side{
@@ -774,4 +778,99 @@ div.divider i {
 .absIcon{
   margin-right: 5px;
   color: rgb(255, 48, 48);
+}
+
+/* back button */
+.back-btn{
+  border: 0;
+  background: 0;
+  text-align: left;
+  margin-top: 20px;
+  width: 90px;
+  font-size: 18px;
+  padding: 10px;
+}
+.back-btn i{
+  margin-right: 5px;
+}
+
+/* error  */
+.error{
+  font-size: 17px;
+  font-weight: 600;
+}
+
+/* submit research */
+fieldset {
+  border: 1px solid #c8c8c8 !important;
+  border-radius: 2px;
+  padding: 10px 20px;
+  padding: 15px !important;
+  padding-top: 5px !important;
+}
+legend {
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin-bottom: 20px;
+  font-size: 21px;
+  line-height: inherit;
+  color: #333;
+  border: 0;
+  border-bottom: 1px solid #e5e5e5;
+  float: left;
+  width: 100%;
+  padding: 0;
+  margin-bottom: .5rem;
+  font-size: calc(1.275rem + .3vw);
+  line-height: inherit;
+  border: 0;
+  width: auto;
+  padding: 5px 10px;
+  font-size: 110%;
+  margin: 10px;
+  font-size: 19px;
+  font-weight: 600;
+}
+
+.sub-alert{
+  font-size: 14px;
+  font-weight: bold;
+}
+.next-btn{
+  font-size: 17px;
+  padding: 9px 20px;
+  margin-top: 20px;
+  width: 120px;
+  color: #fff;
+  background: #0072ff;
+  border-radius: 6px;
+  outline: 0;
+  border: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 20px;
+}
+.next-btn i{
+  margin-left: 10px;
+}
+.sidebar li{
+  cursor: pointer;
+}
+.sidebar select{
+  width: 60% !important;
+}
+.h5{
+  font-size: 13px !important;
+  font-weight: 600;
+}
+.sub-h5{
+  font-size: 13px !important;
+}
+.content i{
+  color: #666;
+}
+.submit-btn{
+  width:170px;
 }

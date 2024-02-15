@@ -4,6 +4,8 @@ import abs2 from "../images/abs2.jpeg";
 export default function Abstracting() {
   return (
     <div className="container">
+      {/* back button */}
+      <button><i class="fa-solid fa-arrow-left"></i>back</button>
       <div class="about">
         <h3 className="about-title">Indexing and Abstracting</h3>
       </div>
@@ -18,9 +20,7 @@ export default function Abstracting() {
         </div>
         <div class="row col-md-6 col-unbreak">
           <div class="col-md-5 mx-2">
-            
               <img
-
                 src={abs2}
                 class="img-responsive w-100"
                 alt="Elsevier&#039;s Scopus"
