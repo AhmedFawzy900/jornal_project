@@ -1,7 +1,7 @@
 {
     "editors": [
         {
-            "name": "Prof.Hassan Eliwa",
+            "name": "Prof. Hassan Eliwa",
             "postition": "Editor-in-cheif",
             "role": "Dean of Faculty of Science, Menoufia University, Egypt",
             "phone": "",
@@ -9,43 +9,43 @@
         },{
             "name":"Dr. Khaled Elgameel",
             "postition":"Manageing Editor",
-            "role":"Dean of Faculty of Science, Menoufia University, Egypt",
+            "role":"Faculty of Science, Menoufia University, Egypt",
             "phone":"+201007235039",
             "email":"khaled.elgamel@science.menofia.edu.eg"
         },{
             "name":"Dr. Ali Fathi Abu-Bakr  ",
             "postition":"Associate Editor",
-            "role":"Mathematics and Computer Science Department",
+            "role":"Mathematics and Computer Science Department, Faculty of Science , Menoufia University, Egypt",
             "phone":"",
             "email":""
         },{
-            "name":"Dr. Dalia Fahmy Slima     ",
+            "name":"Dr. Dalia Fahmy Slima",
             "postition":"Associate Editor",
-            "role":"Botany and Microbiology Department",
+            "role":"Botany and Microbiology Department, Faculty of Science , Menoufia University, Egypt",
             "phone":"",
             "email":""
         },{
             "name":"Dr. Samah Ibrahim Mohamed El-Ghlban ",
             "postition":"Associate Editor",
-            "role":"Chemistry Department",
+            "role":"Chemistry Department, Faculty of Science , Menoufia University, Egypt",
             "phone":"",
             "email":""
         },{
             "name":"Dr. Marwa Mohammed Nabil Atalla ",
             "postition":"Associate Editor",
-            "role":"Zoology Departmen",
+            "role":"Zoology Departmen, Faculty of Science , Menoufia University, Egypt",
             "phone":"",
             "email":""
         },{
             "name":"Dr. Abeer Nowaya ",
             "postition":"Associate Editor",
-            "role":"Physics Department",
+            "role":"Physics Department, Faculty of Science , Menoufia University, Egypt",
             "phone":"",
             "email":""
         },{
             "name":"Dr. Hekmat Fawzy ",
             "postition":"Associate Editor",
-            "role":"Geology Departmen",
+            "role":"Geology Departmen, Faculty of Science , Menoufia University, Egypt",
             "phone":"",
             "email":""
         }

@@ -96,7 +96,7 @@ export default function Register() {
                     controlId="formGridEmail"
                   >
                     <Form.Label>
-                      first name<span className="text-danger">*</span>
+                      First Name<span className="text-danger">*</span>
                     </Form.Label>
                     <InputGroup>
                       <Form.Control
@@ -115,7 +115,7 @@ export default function Register() {
                     controlId="formGridEmail"
                   >
                     <Form.Label>
-                      mid<span className="text-danger">*</span>
+                      Mid
                     </Form.Label>
                     <Form.Control onChange={(e)=>setUserInfo({...userInfo,midName:e.target.value})} type="text" />
                   </Form.Group>
@@ -161,16 +161,17 @@ export default function Register() {
                     controlId="formGridEmail"
                   >
                     <Form.Label>
-                      position<span className="text-danger">*</span>
+                      Position<span className="text-danger">*</span>
                     </Form.Label>
                     <Form.Select aria-label="Default select example" onChange={(e)=>setUserInfo({...userInfo,position:e.target.value})} >
                       <option selected disabled>--Select--</option>
                       <option value="professor">professor</option>
                       <option value="assprofessor">associate professor</option>
                       <option value="asstantprofessor">
-                        assistand professor
+                        assistant professor
                       </option>
                       <option value="instructor">instructor</option>
+                      <option value="lecturer">lecturer</option>
                       <option value="other">other</option>
                     </Form.Select>
                   </Form.Group>
@@ -181,24 +182,23 @@ export default function Register() {
                     className="my-2 col-md-6 col-sm-12"
                     controlId="formGridEmail"
                   >
-                    <Form.Label>spacifilty</Form.Label>
+                    <Form.Label>Specialty</Form.Label>
                     <Form.Select aria-label="Default select example" onChange={(e)=>setUserInfo({...userInfo,spacifily:e.target.value})} >
                       <option selected disabled>--Select--</option>
-                      <option value="analytical">Analytical chemistry</option>
-                      <option value="biochemistry">Biochemistry</option>
-                      <option value="elctro">Elecrochemistry</option>
-                      <option value="enviromental">
-                        environmental chemistry
+                      <option value="Mathematics">Mathematics</option>
+                      <option value="ComputerScience">Computer Science</option>
+                      <option value="Physics">Physics</option>
+                      <option value="Chemistry">
+                        Chemistry
                       </option>
-                      <option value="food">food chemistry</option>
-                      <option value="liquid">loniq Liquid catalyst</option>
-                      <option value="nano">nanotecnology</option>
-                      <option value="organic">organic chemistry</option>
+                      <option value="Botany">Botany</option>
+                      <option value="Zoology">Zoology</option>
+                      <option value="Geology">Geology</option>
                       <option value="other">other</option>
                     </Form.Select>
                   </Form.Group>
                   <Form.Group className="my-2" as={Col}>
-                    <Form.Label>spacify field of study</Form.Label>
+                    <Form.Label>Specific field of study</Form.Label>
                     <InputGroup>
                       <Form.Control type="text" onChange={(e)=>setUserInfo({...userInfo,fieldStudy:e.target.value})} />
                       <InputGroup.Text>
@@ -210,7 +210,7 @@ export default function Register() {
                 <Row className="mb-3">
                   <Form.Group className="my-2 col-md-6 col-sm-12" as={Col}>
                     <Form.Label>
-                      Phone<span className="text-danger">*</span>
+                      Phone
                     </Form.Label>
                     <InputGroup>
                       <Form.Control type="text" onChange={(e)=>setUserInfo({...userInfo,phone:e.target.value})} />
@@ -221,7 +221,7 @@ export default function Register() {
                   </Form.Group>
                   <Form.Group className="my-2 col-md-6 col-sm-12" as={Col}>
                     <Form.Label>
-                      mobile<span className="text-danger"></span>
+                      Mobile<span className="text-danger">*</span>
                     </Form.Label>
                     <InputGroup>
                       <Form.Control type="text" onChange={(e)=>setUserInfo({...userInfo,mobile:e.target.value})} />
@@ -240,7 +240,6 @@ export default function Register() {
                       <Form.Control
                       onChange={(e)=>setUserInfo({...userInfo,fax:e.target.value})}
                         type="text"
-                        placeholder="Enter first name"
                       />
                       <InputGroup.Text>
                         <i class="icon fa-solid fa-fax"></i>
@@ -249,13 +248,12 @@ export default function Register() {
                   </Form.Group>
                   <Form.Group className="my-2 col-md-6 col-sm-12" as={Col}>
                     <Form.Label>
-                      home page<span className="text-danger"></span>
+                      Home page<span className="text-danger"></span>
                     </Form.Label>
                     <InputGroup>
                       <Form.Control
                       onChange={(e)=>setUserInfo({...userInfo,homePage:e.target.value})}
                         type="text"
-                        placeholder="Enter first name"
                       />
                       <InputGroup.Text>
                         <i class="icon fa-solid fa-earth-americas"></i>
@@ -266,7 +264,7 @@ export default function Register() {
                 <Row className="mb-3">
                   <Form.Group className="my-2 col-md-6 col-sm-12" as={Col}>
                     <Form.Label>
-                      Postal code<span className="text-danger"></span>
+                      Postal code<span className="text-danger">*</span>
                     </Form.Label>
                     <InputGroup>
                       <Form.Control type="text" onChange={(e)=>setUserInfo({...userInfo,postalCode:e.target.value})} />
@@ -300,7 +298,7 @@ export default function Register() {
               <Row>
                 <Row className="mb-3">
                   <Form.Group as={Col} controlId="formGridEmail">
-                    <Form.Label>ORCID</Form.Label>
+                    <Form.Label>ORCID </Form.Label>
                     <InputGroup>
                       <Form.Control type="text" onChange={(e)=>setUserInfo({...userInfo,orcid:e.target.value})} />
                       <InputGroup.Text>
@@ -326,7 +324,7 @@ export default function Register() {
                 <Row className="mb-3">
                   <Form.Group as={Col} controlId="formGridEmail">
                     <Form.Label>
-                      Alternative Email<span className="text-danger">*</span>
+                      Alternative Email Address
                     </Form.Label>
                     <InputGroup>
                       <Form.Control type="text" onChange={(e)=>setUserInfo({...userInfo,altEmail:e.target.value})} />
@@ -365,7 +363,7 @@ export default function Register() {
                 <Row className="mb-3">
                   <Form.Group as={Col}>
                     <Form.Label>
-                      comment<span className="text-danger"></span>
+                      Comment<span className="text-danger"></span>
                     </Form.Label>
                     <Form.Control
                     onChange={(e)=>setUserInfo({...userInfo,comment:e.target.value})}

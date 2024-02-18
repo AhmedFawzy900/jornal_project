@@ -9,6 +9,7 @@ import img7 from "../images/card7.png";
 import img8 from "../images/card8.png";
 import img9 from "../images/card9.png";
 import img10 from "../images/card10.jpg";
+import editorsData from '../data/editor.json';
 // import editors from '../data/editor.json';
 const editors = [
   {
@@ -68,7 +69,7 @@ export default function EditorialJor() {
       <div className="about-title">Editorial Board</div>
       {/* start cards */}
       {
-        editors.map((editor)=>{
+        editorsData.editors.map((editor)=>{
           return (
             <div className="row card-style my-4">
             <div className="col-lg-3 col-md-6 col-sm-12 mb-4 mb-lg-0">
@@ -97,7 +98,7 @@ export default function EditorialJor() {
                 <strong>{editor.name}</strong>
               </p>
               <p className="card-text"><i>{editor.role}</i> </p>
-              <p className="card-text"><i class="editor-icon fa-solid fa-location-dot"></i><i>Facalty of science</i></p>
+              {/* <p className="card-text"><i class="editor-icon fa-solid fa-location-dot"></i><i>Facalty of science</i></p> */}
               <p className="card-text">{
                 editor.phone ? <i class="editor-icon fa-solid fa-phone"></i> : ""
               } {editor.email}</p>

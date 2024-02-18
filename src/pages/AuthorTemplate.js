@@ -26,7 +26,7 @@ export default function AuthorTemplate() {
         <p>
             <strong>
             &nbsp;Please download the author template from&nbsp;
-            <Link target="_blank" to={"https://docs.google.com/document/d/1cSh_G_fUb8ox0zF31xym7CSv09smrVwZ/edit?usp=drive_link"} className="download-button">here</Link>, and upload it
+            <Link target="_blank" to={"https://docs.google.com/document/d/1o2Xi2klNniCXGhxqn5ilkGrTh7knykok/edit?rtpof=true&sd=true"} className="download-button">here</Link>, and upload it
             during the submission as this is a mandatory item.
             </strong>
         </p>

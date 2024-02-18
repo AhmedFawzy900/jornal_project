@@ -12,7 +12,7 @@ export default function RightSide(){
             <div class="panel-body">
 				<strong><i class="fa fa-cube"></i> Publisher</strong><br />
                 <div>
-                    <a class="block pub_owner tag_a" href="#" target="_blank">The Faculty of Science at Menoufia University</a>   		
+                    <a class="block pub_owner tag_a" href="#" target="_blank"> Menoufia University,Faculty Science</a>   		
                 </div>
 		        <hr/>
                 <strong class="block margin-top-10"><i class="fa-solid fa-cube"></i> Editor-in-Chief</strong>
@@ -52,13 +52,13 @@ export default function RightSide(){
                 <div class="row">
                     <strong class="col"><i class="fa-solid fa-cube"></i> Print ISSN </strong>
                     <div class="col" dir="ltr">
-                        <a className="tag_a m-0" href="#" target="_blank">0449-2285</a>
+                        <a className="tag_a m-0" href="#" target="_blank">1110-2195</a>
                     </div>
                 </div>
                 <div class="row">
                     <strong class="col"><i class="fa-solid fa-cube"></i> Online ISSN </strong>
                     <div class="col" dir="ltr">
-                        <a href="#" className="tag_a m-0" target="_blank">2357-0245</a>
+                        {/* <a href="#" className="tag_a m-0" target="_blank">2357-0245</a> */}
                     </div>
                 </div>
             </div>

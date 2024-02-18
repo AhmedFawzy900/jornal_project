@@ -10,10 +10,11 @@ import { Col, InputGroup, Row } from "react-bootstrap";
 import Swal from "sweetalert2";
 
 export default function SubmitReasearch() {
+  const navigate = useNavigate();
+
   const userInfo = localStorage.getItem("userInfo")
     ? JSON.parse(localStorage.getItem("userInfo"))
-    : "";
-  const navigate = useNavigate();
+    : navigate("/login");
   if (userInfo === "") {
     navigate("/login");
   }
@@ -404,7 +405,7 @@ export default function SubmitReasearch() {
                     controlId="formGridEmail"
                   >
                     <Form.Label>
-                      first name<span className="text-danger">*</span>
+                      First name<span className="text-danger">*</span>
                     </Form.Label>
                     <InputGroup>
                       <Form.Control
@@ -428,7 +429,7 @@ export default function SubmitReasearch() {
                     controlId="formGridEmail"
                   >
                     <Form.Label>
-                      mid<span className="text-danger">*</span>
+                      Mid
                     </Form.Label>
                     <Form.Control
                       onChange={(e) =>
@@ -446,7 +447,7 @@ export default function SubmitReasearch() {
                     controlId="formGridEmail"
                   >
                     <Form.Label>
-                      last name<span className="text-danger">*</span>
+                      Last name<span className="text-danger">*</span>
                     </Form.Label>
                     <InputGroup>
                       <Form.Control
@@ -517,7 +518,7 @@ export default function SubmitReasearch() {
                     controlId="formGridEmail"
                   >
                     <Form.Label>
-                      position<span className="text-danger">*</span>
+                      Position<span className="text-danger">*</span>
                     </Form.Label>
                     <Form.Select
                       aria-label="Default select example"
@@ -534,15 +535,16 @@ export default function SubmitReasearch() {
                       <option value="professor">professor</option>
                       <option value="assprofessor">associate professor</option>
                       <option value="asstantprofessor">
-                        assistand professor
+                        assistant professor
                       </option>
                       <option value="instructor">instructor</option>
+                      <option value="lecturer">lecturer</option>
                       <option value="other">other</option>
                     </Form.Select>
                   </Form.Group>
                   <Form.Group className="my-2 col-md-6 col-sm-12" as={Col}>
                     <Form.Label>
-                      Phone<span className="text-danger">*</span>
+                      Phone
                     </Form.Label>
                     <InputGroup>
                       <Form.Control
@@ -719,7 +721,7 @@ export default function SubmitReasearch() {
                       checkValidation();
                     }}
                   >
-                    next<i class="fa-solid fa-arrow-right"></i>
+                    Next<i class="fa-solid fa-arrow-right"></i>
                   </button>
                 </div>
               </fieldset>
@@ -750,17 +752,16 @@ export default function SubmitReasearch() {
                       }}
                       aria-label="Default select example"
                     >
-                      <option selected disabled></option>
-                      <option value="analytical">Analytical chemistry</option>
-                      <option value="biochemistry">Biochemistry</option>
-                      <option value="elctro">Elecrochemistry</option>
-                      <option value="enviromental">
-                        environmental chemistry
+                     <option selected disabled>--Select--</option>
+                      <option value="Mathematics">Mathematics</option>
+                      <option value="ComputerScience">Computer Science</option>
+                      <option value="Physics">Physics</option>
+                      <option value="Chemistry">
+                        Chemistry
                       </option>
-                      <option value="food">food chemistry</option>
-                      <option value="liquid">loniq Liquid catalyst</option>
-                      <option value="nano">nanotecnology</option>
-                      <option value="organic">organic chemistry</option>
+                      <option value="Botany">Botany</option>
+                      <option value="Zoology">Zoology</option>
+                      <option value="Geology">Geology</option>
                       <option value="other">other</option>
                     </Form.Select>
                   </FormGroup>
@@ -933,7 +934,7 @@ export default function SubmitReasearch() {
                     controlId="formGridEmail"
                   >
                     <Form.Label>
-                      first name<span className="text-danger">*</span>
+                      First name<span className="text-danger">*</span>
                     </Form.Label>
                     <InputGroup>
                       <Form.Control
@@ -957,7 +958,7 @@ export default function SubmitReasearch() {
                     controlId="formGridEmail"
                   >
                     <Form.Label>
-                      mid<span className="text-danger">*</span>
+                      Mid
                     </Form.Label>
                     <Form.Control
                       onChange={(e) =>
@@ -975,7 +976,7 @@ export default function SubmitReasearch() {
                     controlId="formGridEmail"
                   >
                     <Form.Label>
-                      last name<span className="text-danger">*</span>
+                      Last name<span className="text-danger">*</span>
                     </Form.Label>
                     <InputGroup>
                       <Form.Control
@@ -1049,7 +1050,7 @@ export default function SubmitReasearch() {
                     controlId="formGridEmail"
                   >
                     <Form.Label>
-                      position<span className="text-danger">*</span>
+                      Position<span className="text-danger">*</span>
                     </Form.Label>
                     <Form.Select
                       aria-label="Default select example"
@@ -1066,9 +1067,10 @@ export default function SubmitReasearch() {
                       <option value="professor">professor</option>
                       <option value="assprofessor">associate professor</option>
                       <option value="asstantprofessor">
-                        assistand professor
+                        assistant professor
                       </option>
                       <option value="instructor">instructor</option>
+                      <option value="lecturer">lecturer</option>
                       <option value="other">other</option>
                     </Form.Select>
                   </Form.Group>
@@ -1077,7 +1079,7 @@ export default function SubmitReasearch() {
                     className="my-2 col-md-6 col-sm-12"
                     controlId="formGridEmail"
                   >
-                    <Form.Label>spacifilty</Form.Label>
+                    <Form.Label>Specialty</Form.Label>
                     <Form.Select
                       onChange={(e) =>
                         setResearchReviews({
@@ -1087,19 +1089,16 @@ export default function SubmitReasearch() {
                       }
                       aria-label="Default select example"
                     >
-                      <option selected disabled>
-                        --Select--
+                       <option selected disabled>--Select--</option>
+                      <option value="Mathematics">Mathematics</option>
+                      <option value="ComputerScience">Computer Science</option>
+                      <option value="Physics">Physics</option>
+                      <option value="Chemistry">
+                        Chemistry
                       </option>
-                      <option value="analytical">Analytical chemistry</option>
-                      <option value="biochemistry">Biochemistry</option>
-                      <option value="elctro">Elecrochemistry</option>
-                      <option value="enviromental">
-                        environmental chemistry
-                      </option>
-                      <option value="food">food chemistry</option>
-                      <option value="liquid">loniq Liquid catalyst</option>
-                      <option value="nano">nanotecnology</option>
-                      <option value="organic">organic chemistry</option>
+                      <option value="Botany">Botany</option>
+                      <option value="Zoology">Zoology</option>
+                      <option value="Geology">Geology</option>
                       <option value="other">other</option>
                     </Form.Select>
                   </Form.Group>
@@ -1246,7 +1245,6 @@ export default function SubmitReasearch() {
                       <option value="2">Copyright Transfer Agreement *</option>
                       <option value="3">Figure</option>
                       <option value="4">Table</option>
-                      <option value="5">Author template file *</option>
                       <option value="6">Supplementary File</option>
                     </Form.Select>
                   </Form.Group>

@@ -1,4 +1,4 @@
-import headImg from "../images/header_image.jpeg";
+import headImg from "../images/headerimg.png";
 import "../App.css";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
@@ -11,8 +11,9 @@ export default function Header() {
     localStorage.removeItem("userInfo");
     window.location.reload();
   }
+
   return (
-    <div className="container">
+    <div className="">
       <img className="headImg w-100" src={headImg} alt="image" />
       <nav id="nav" className="navbar navbar-expand-lg bg-body-tertiary">
         <button
@@ -86,7 +87,7 @@ export default function Header() {
                 </Link>
               </li>
               <li class="nav-item">
-                <Link class="nav-link" to={"/submitManuscript"}>
+                <Link class="nav-link" to={userInfo ? "/submitManuscript" : "/login"}>
                   Submit manuscript
                 </Link>
               </li>

@@ -14,7 +14,7 @@ export default function CollapseList(){
                     </div>
                     <div class="collapse" id="collapse1">
                         <ul class="list-unstyled mt-2">
-                            <li className="mx-4 "><i class="fa-regular fa-file-lines"></i><Link className='tag_a' to={'/browse/currentIssue'}>issue1</Link> </li>
+                            <li className="mx-4 "><i class="fa-regular fa-file-lines"></i><Link className='tag_a mx-2' to={'/browse/currentIssue'}>issue1</Link> </li>
 
                         </ul>
                     </div>

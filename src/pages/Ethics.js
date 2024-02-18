@@ -238,11 +238,7 @@ const Ethics = () => {
                 Authors are instructed to pay the standard article processing
                 charges after the acceptance of the article through peer review
                 process. Authors are requested to pay their individual processing
-                fee based on the journals they are publishing. Detail information
-                in this regard is provided at{" "}
-                <a href="#">
-                    http://ejchem.journals.ekb.eg/journal/about
-                </a>
+                fee based on the journals they are publishing. 
                 </p>
                 <p>&nbsp;</p>
                 <p>

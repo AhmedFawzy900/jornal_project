@@ -1,11 +1,14 @@
-import CoverImg from '../images/cover.png'
+import CoverImg from '../images/cover.png';
+import CoverImg1 from '../images/cover-1.png';
+import CoverImg2 from '../images/cover-2.png';
+
 import CollapseList from './CollapseList';
 
 export default function LeftSide(){
     return(
         <div className='left-side col-lg-4 col-md-6 col-sm-12'>
             <div className='my-2'>
-                <img src={CoverImg} alt="cover" />
+                <img src={CoverImg1} alt="cover" />
             </div>
 
             <div className="card">

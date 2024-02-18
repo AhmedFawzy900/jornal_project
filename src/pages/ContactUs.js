@@ -40,8 +40,7 @@ export default function ContactUs() {
       </div>
       <div className="contact-us-info">
         <h4>
-          Publisher: National Information and Documentation Centre (NIDOC),
-          Academy of Scientific Research and Technology, ASRT
+          Publisher: Faculty of Science , Menoufia University , Egypt
         </h4>
         <h4>Email: nidocpub6@gmail.com</h4>
       </div>
@@ -69,11 +68,11 @@ export default function ContactUs() {
           </div>
           <div className="row">
             <div className="form-group col-md-6 my-1">
-              <label htmlFor="subject">Subject</label>
+              <label htmlFor="subject my-1">Subject</label>
               <input type="text" className="form-control" id="subject" />
             </div>
             <div className="form-group col-md-6 my-1">
-              <label htmlFor="question-type">Question Type</label>
+              <label htmlFor="question-type my-1">Question Type</label>
               <select className="form-control" id="question-type">
                 <option>--Select--</option>
                 <option>Subscribe Jornal</option>

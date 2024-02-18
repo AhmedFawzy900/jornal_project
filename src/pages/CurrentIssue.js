@@ -4,7 +4,7 @@ import CoverImg from '../images/cover.png'
 
 export default function CurrentIssue() {
   return (
-    <div className="container row">
+    <div className="row">
         <div className="left-side col-lg-3 col-md-4 col-sm-12">
         <div className="my-2">
             <img src={CoverImg} className="w-100" alt="cover" />
@@ -42,31 +42,64 @@ export default function CurrentIssue() {
         </div>
                             
         <div class="panel panel-default my_panel-default panel-shadow">
-            <div class="panel-heading">
-                <b class="panel-title">
-                    <i class="fa fa-file"></i>
-                     Main Subjects
-                </b>
-            </div>
-            <div class="panel-body">
-                <div> 
-                    <i class="fa-regular fa-file-lines"></i>
-                    <a href="#" class="tag_a btn-link" > Environmental chemistry <span class="badge">2</span></a>
-                </div>
-                <div> 
-                    <i class="fa-regular fa-file-lines"></i>
-                    <a href="#" class="tag_a btn-link" > Food Chemistry <span class="badge">1</span></a>
-                </div>
-                <div> 
-                    <i class="fa-regular fa-file-lines"></i>
-                    <a href="#" class="tag_a btn-link" > Inorganic chemistry <span class="badge">1</span></a>
-                </div>
-                <div> 
-                    <i class="fa-regular fa-file-lines"></i>
-                    <a href="#" class="tag_a btn-link" > Organic chemistry <span class="badge">1</span></a>
-                </div>
-            </div>
+        <div class="panel-heading">
+          <b class="panel-title">
+            <i class="fa fa-file"></i>
+            Main Subjects
+          </b>
         </div>
+        <div class="panel-body">
+          <div>
+            <i class="fa-regular fa-file-lines"></i>
+            <a href="#" class="tag_a btn-link">
+              {" "}
+              Mathematics <span class="badge"></span>
+            </a>
+          </div>
+          <div>
+            <i class="fa-regular fa-file-lines"></i>
+            <a href="#" class="tag_a btn-link">
+              {" "}
+              Computer Science <span class="badge"></span>
+            </a>
+          </div>
+          <div>
+            <i class="fa-regular fa-file-lines"></i>
+            <a href="#" class="tag_a btn-link">
+              {" "}
+              Physics<span class="badge"></span>
+            </a>
+          </div>
+          <div>
+            <i class="fa-regular fa-file-lines"></i>
+            <a href="#" class="tag_a btn-link">
+              {" "}
+              Chemistry<span class="badge"></span>
+            </a>
+          </div>
+          <div>
+            <i class="fa-regular fa-file-lines"></i>
+            <a href="#" class="tag_a btn-link">
+              {" "}
+              Botany<span class="badge"></span>
+            </a>
+          </div>
+          <div>
+            <i class="fa-regular fa-file-lines"></i>
+            <a href="#" class="tag_a btn-link">
+              {" "}
+              Zoology<span class="badge"></span>
+            </a>
+          </div>
+          <div>
+            <i class="fa-regular fa-file-lines"></i>
+            <a href="#" class="tag_a btn-link">
+              {" "}
+              Geology<span class="badge"></span>
+            </a>
+          </div>
+        </div>
+      </div>
         {/*end main subjects section */}
 
 

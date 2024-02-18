@@ -8,7 +8,7 @@ export default function Articls(){
     link.setAttribute('download', 'filename.pdf'); // Change the filename as desired
     document.body.appendChild(link);
     link.click();
-};
+  };
   return(
     <div>
       {
@@ -18,7 +18,7 @@ export default function Articls(){
                 <h5 class="margin-bottom-6 list-article-title ltr">
                     <Link class="tag_a artical-title btn-link" to={`/abstract/${item.id}`}>{item.title}</Link>
                 </h5>
-                <p class="margin-bottom-3">Pages <span >1-6</span></p>   
+                
                 <p class="margin-bottom-3 ltr" >{item.authors}</p>
                 <ul class="list-inline size-12 margin-top-10 margin-bottom-3 size-14">
                 <li ><Link target="_blank" to={`/abstract/${item.id}`} className="btn-link tag_a " >view artical</Link></li>

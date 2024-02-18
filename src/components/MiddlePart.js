@@ -3,9 +3,9 @@ import Articls from "./Aritcals";
 export default function MiddlePart() {
   return (
     <div className="middle-part col-lg-5 col-md-6 col-sm-12">
-      <h5 className="my-2">Scientific Journal of Facalty of Science</h5>
-      <h5 className="text-center" >( Menoufia University )</h5>
-      <p>
+      <h5 className="my-2 text-center">Scientific Journal of Faculty of Science</h5>
+      {/* <h5 className="text-center" >( Menoufia University )</h5> */}
+      <p className="text-justify">
         The Faculty of Science at Menoufia University publishes a scientific
         journal periodically with the aim of disseminating scientific research
         for faculty members and researchers at similar colleges, and various
@@ -73,28 +73,49 @@ export default function MiddlePart() {
             <i class="fa-regular fa-file-lines"></i>
             <a href="#" class="tag_a btn-link">
               {" "}
-              Environmental chemistry <span class="badge">2</span>
+              Mathematics <span class="badge"></span>
             </a>
           </div>
           <div>
             <i class="fa-regular fa-file-lines"></i>
             <a href="#" class="tag_a btn-link">
               {" "}
-              Food Chemistry <span class="badge">1</span>
+              Computer Science <span class="badge"></span>
             </a>
           </div>
           <div>
             <i class="fa-regular fa-file-lines"></i>
             <a href="#" class="tag_a btn-link">
               {" "}
-              Inorganic chemistry <span class="badge">1</span>
+              Physics<span class="badge"></span>
             </a>
           </div>
           <div>
             <i class="fa-regular fa-file-lines"></i>
             <a href="#" class="tag_a btn-link">
               {" "}
-              Organic chemistry <span class="badge">1</span>
+              Chemistry<span class="badge"></span>
+            </a>
+          </div>
+          <div>
+            <i class="fa-regular fa-file-lines"></i>
+            <a href="#" class="tag_a btn-link">
+              {" "}
+              Botany<span class="badge"></span>
+            </a>
+          </div>
+          <div>
+            <i class="fa-regular fa-file-lines"></i>
+            <a href="#" class="tag_a btn-link">
+              {" "}
+              Zoology<span class="badge"></span>
+            </a>
+          </div>
+          <div>
+            <i class="fa-regular fa-file-lines"></i>
+            <a href="#" class="tag_a btn-link">
+              {" "}
+              Geology<span class="badge"></span>
             </a>
           </div>
         </div>

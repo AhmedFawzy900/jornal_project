@@ -53,7 +53,7 @@ export default function AbstractPage() {
               <img src={img} className="w-100" alt="photo" />
             </div>
             <div className="col-md-6">
-              <h4 className="card-text">Volume 27, Issue 1 - Serial December 2023 Pages 1-6</h4>
+              <h4 className="card-text">Volume 27, Issue 1 - Serial December 2023 </h4>
             </div>
           </div>
         </div>
@@ -65,9 +65,9 @@ export default function AbstractPage() {
                 </b>
             </div>
             <div class="panel-body ">
-                <i class=" absIcon fa-solid fa-file-code"></i>XML
-                <hr/>
-                <Link className="tag_a" to={pdfLinks.pdf_path}>
+                {/* <i class=" absIcon fa-solid fa-file-code"></i>XML
+                <hr/> */}
+                <Link className="tag_a" target="_blank" to={pdfLinks.pdf_path}>
                   <i class=" absIcon fa-solid fa-file-pdf"></i>PDF
                 </Link>
             </div>
@@ -104,9 +104,9 @@ export default function AbstractPage() {
                 </b>
             </div>
                 <div className="panel-body">
-                    <h6 className="tag_a">Article View: 246</h6>
+                    <h6 className="tag_a">Article View: 0</h6>
                     <hr/>
-                    <h6 className="tag_a">PDF Download: 301</h6>
+                    <h6 className="tag_a">PDF Download: 0</h6>
                 </div>
         </div>
       </div>

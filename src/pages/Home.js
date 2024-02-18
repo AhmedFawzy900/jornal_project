@@ -6,7 +6,7 @@ import RightSide from "../components/RightSide";
 
 export default function Home(){
     return(
-            <div className='container row'>
+            <div className=' row'>
                 <LeftSide />
                 <MiddlePart />
                 <RightSide />
