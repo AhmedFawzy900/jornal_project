@@ -42,7 +42,7 @@ export default function ContactUs() {
         <h4>
           Publisher: Faculty of Science , Menoufia University , Egypt
         </h4>
-        <h4>Email: nidocpub6@gmail.com</h4>
+        <h4>Email: journal@science.menofia.edu.eg</h4>
       </div>
       {/* form */}
       <div className="contact-us-form">

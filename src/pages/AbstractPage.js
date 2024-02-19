@@ -2,7 +2,7 @@ import { useParams } from "react-router";
 import abstracts from "../data/abstract.json";
 import articleData from '../data/articals.json';
 
-import img from "../images/cover.png";
+import img from "../images/cover-2.png";
 import { Link} from "react-router-dom";
 
 
@@ -15,7 +15,7 @@ export default function AbstractPage() {
     window.history.back();
   };
   return (
-    <div className="container row abstracPage">
+    <div className=" row abstracPage">
        {/* back button */}
        <button className="back-btn" onClick={goBack}><i class="fa-solid fa-arrow-left"></i>back</button>
       {itemMatched && (
@@ -25,7 +25,14 @@ export default function AbstractPage() {
           </div>
           <div className="autors">
             <h3>Authors</h3>
-            <h5>{itemMatched.authors}</h5>
+            <h5>{itemMatched.authors.map((e) =>(
+              <>
+                <span>{e.text}</span> 
+                <sup className="mx-1">{e.num}</sup>
+                <span>{!e.last && " , "}</span>
+                <span></span>
+              </>
+            ))}</h5>
           </div>
           <div className="positions">
             {itemMatched.postitions.map((e)=>(

@@ -46,7 +46,7 @@ export default function MiddlePart() {
         </div> */}
       {/*end most viewed articals section */}
       {/* main subjects section */}
-      <div className="my-4">
+      <div className="my-1">
         <b class="page-header  margin-top-50">
           <i class="fa-solid fa-layer-group"></i>
           <span class="">

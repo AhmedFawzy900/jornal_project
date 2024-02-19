@@ -874,3 +874,24 @@ legend {
 .submit-btn{
   width:170px;
 }
+
+/* researches pages */
+.new_research li{
+
+  padding: 8px;
+}
+.new_research li:hover{
+  background: #ededed;
+}
+.new_research li .badge {
+  background: #c0c0c0;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  padding: 4px;
+}
+.save_author_btn{
+  width: 130px;
+  height: 44px;
+  margin-top: 20px;
+}

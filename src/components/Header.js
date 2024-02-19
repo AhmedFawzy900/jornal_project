@@ -87,7 +87,7 @@ export default function Header() {
                 </Link>
               </li>
               <li class="nav-item">
-                <Link class="nav-link" to={userInfo ? "/submitManuscript" : "/login"}>
+                <Link class="nav-link" to={userInfo ? "/research" : "/login"}>
                   Submit manuscript
                 </Link>
               </li>
@@ -139,7 +139,7 @@ export default function Header() {
               {userInfo ? (
                 <>
                     <li class="nav-item">
-                    <Link class="nav-link" to={"/profile"}>
+                    <Link class="nav-link" to={"/home"}>
                         {userInfo.username}
                     </Link>
                     </li>

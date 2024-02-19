@@ -1,5 +1,5 @@
 import CoverImg from '../images/cover.png';
-import CoverImg1 from '../images/cover-1.png';
+import CoverImg1 from '../images/cover-2.png';
 import CoverImg2 from '../images/cover-2.png';
 
 import CollapseList from './CollapseList';

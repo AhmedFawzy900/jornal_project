@@ -3,7 +3,21 @@
         {
             "id": 1,
             "title": "Effect of ginger on gabapentin-induced morphological and skeletal abnormalities in the chick Gallus domestics",
-            "authors": "Gamal M Badawy1, Marwa N Atallah1 ",
+            "authors": [
+                {
+                    "num": "1",
+                    "text": "Gamal M Badawy"
+                },
+                {
+                    "num": "1*",
+                    "text": "Marwa N Atallah"
+                },
+                {
+                    "num": "1",
+                    "text": "Saber A Sakr",
+                    "last": true
+                }
+            ],
             "postitions": [
                 {
                     "num": 1,
@@ -16,7 +30,25 @@
         {
             "id": 2,
             "title": "The effect of tobacco concentration on the DNA blood samples using the AC electrical impedance spectroscopy.",
-            "authors": "M.M. El-Zaidia, Sobhy E. Hassab El-Nabi, Huda Salman, Sameh Hassan ",
+            "authors": [
+                {
+                    "num": "1",
+                    "text": "M.M. El-Zaidia"
+                },
+                {
+                    "num": "2",
+                    "text": "Sobhy E. Hassab El-Nabi"
+                },
+                {
+                    "num": "1",
+                    "text": "Huda Salman"
+                },
+                {
+                    "num": "1",
+                    "text": "Sameh Hassan",
+                    "last": true
+                }
+            ],
             "postitions": [
                 {
                     "num": 1,
@@ -33,7 +65,13 @@
         {
             "id": 3,
             "title": "Synthesis and Antimicrobial Activity of Modified 1,3,4-Oxadiazoles and Their Sugar Derivatives",
-            "authors": "Adel A.-H. Abdel-Rahman",
+            "authors": [
+                {
+                    "num": "",
+                    "text": "Adel A.-H. Abdel-Rahman",
+                    "last": true
+                }
+            ],
             "postitions": [
                 {
                     "num": "",
@@ -46,7 +84,13 @@
         {
             "id": 4,
             "title": "Annular Energy Distribution for a Group of Ions in some Biological and Semi-conductor Materials",
-            "authors": "El-Sayed Awad*, Fares M. El-kassed, Naira Foda, Ahmed Salah",
+            "authors": [
+                {
+                    "num": "",
+                    "text": "El-Sayed Awad*, Fares M. El-kassed, Naira Foda, Ahmed Salah",
+                    "last": true
+                }
+            ],
             "postitions": [
                 {
                     "num": "",
@@ -55,66 +99,152 @@
             ],
             "abstract": "Annular energy distribution, AED is a concept deduced from radial dose, RD,that enables estimating the distribution of secondary electrons in a given medium due toion bombardment. The AED for 337 ions impeded in some distinct targets with biologicalnature or used in electronic circuits estimated. Gallium arsenide (GaAs), Lithium Niobate(LiNbO3), Pancreas and Thyroid targets investigated for different equal LET groups ofions of the same LET (keV/μm). AED, shell annular energy distribution, SAED, thecorresponding maximum annular energy width, rMAEW, and the total annular energydistribution for different targets per nm, TAED for those ions in these different targetsdetermined.",
             "keywords": "Radial dose; Katz radial dose; annular energy distribution; energy distribution at nm scale;LET"
-        },{
+        },
+        {
             "id": 5,
             "title": "The effect of radiation and cement dust on the DNA of femaleand male samples",
-            "authors": "M.M. El-Zaidia, Sobhy E. Hassab El-Nabi, Huda Salman, Sameh Hassan",
+            "authors": [
+                {
+                    "num": "1",
+                    "text": "M.M. El-Zaidia"
+                },
+                {
+                    "num": "2",
+                    "text": "Sobhy E. Hassab El-Nabi"
+                },
+                {
+                    "num": "1",
+                    "text": "Huda Salman"
+                },
+                {
+                    "num": "1",
+                    "text": "Sameh Hassan",
+                    "last": true
+                }
+            ],
             "postitions": [
                 {
                     "num": "1",
                     "text": "Faculty of Science, Menoufia University, Shebin El-koom, Menoufia, 32511, Egypt."
-                },{
+                },
+                {
                     "num": "2",
                     "text": "Physics Department,Zoology Department."
                 }
             ],
             "abstract": "The Nyquist plots of female and male DNA Samples were recorded using electrical impedance spectroscopy. The recorded curves were of the same features. Thepeak of each curve and its half-width were increased and shifted to higher impedancecomponent values as, the expresser time increased 0,5,10,15,20,25 and 30 min, under theeffect of any of laser radiation or gamma radiation. The obtained results for the femalehealthy DNA samples were: The electrical resistance was increased from 346.11KΩ to922.4KΩ, while the electric capacity was increased from 15.3μF to 24.6μFunder the effectof laser radiation of constantPower100mW, (ג=532nm).These results under the effect ofgamma radiation were the increase of the electric resistance from 145.37KΩ to 161.45KΩand the increase of the electric capacity from 9.5μFto 14.1μF. For the male healthy DNAsamples, the obtained results were: The electric resistance increased from 140.12KΩ to929.17KΩ, while the electric capacity was increased from 2.02μF to 7.10μF. This meansthat the DNA efficiency of the female samples decreased more than that of the malesamples. The effect of cement dust on female and male healthy DNA Samples was studied.The selected cement dust concentrations were 0, 1, 2, 3, and 4μL. The results of the DNAfemale samples were anincreasein the electrical resistance from 131.30KΩ to2853.34KΩand the increase of the electric capacity from 7.86μF to 71.4μF. The obtainedresults of the DNA healthy male, samples were the increase of the electric resistance from583.07KΩ to 4440KΩ and the electric capacity from 19.9μFto 4.82μF. These resultsconfirm the decrease of the female DNA efficiency as a result of the increase of the cementdust concentration, more than that of the DNA male sample .",
             "keywords": "radiation and cement dust effect, DNA, female and male samples."
-        },{
+        },
+        {
             "id": 6,
             "title": "Seismic Data Interpretation of the Upper Cretaceous Succession in the Karama SW Oil Field, Western Desert, Egypt",
-            "authors": "Mohamed F. Abu-Hashish*, Mohamed M. Aboelhassan, Gamal Elsayed, Noha, M. hassan",
+            "authors": [
+                {
+                    "num": "1*",
+                    "text": "Mohamed F. Abu-Hashish"
+                },
+                {
+                    "num": "1",
+                    "text": "Mohamed M. Aboelhassan"
+                },
+                {
+                    "num": "2",
+                    "text": "Gamal Elsayed"
+                },
+                {
+                    "num": "1",
+                    "text": "Noha M. Hassan",
+                    "last": true
+                }
+            ],
             "postitions": [
                 {
                     "num": "1",
                     "text": "Geology Department, Faculty of Science, Menoufiya University, Egypt."
-                },{
+                },
+                {
                     "num": "2",
                     "text": "Exploration Department, khalda Petroleum Company, Egypt."
                 }
             ],
             "abstract": "The northern part of the Western Desert seems to have passed through different phases of deformations in the late Cretaceous, post-middle Eocene and middle Miocene and the subsurface data indicated an early Mesozoic phase of normal faulting resulting of the tectonic evolution of the northern Western Desert where several hydrocarbon fields has been. Geophysical information in the form of seismic and well logging data are used to understand the structural elements, tectonic setting and stratigraphy of the upper Cretaceous rock units (Bahariya and Abu Roash Formations) in the Karama SW oil field, northern part of the Western Desert. The interpretation of the available seismic data led to the identification of the reflectors under investigation as well as to map and determine the structural elements on the tops of the evaluated lithostratigraphic units. 3D Seismic lines were used to construct four depth structure contour maps on the top of Abu Roash C, Abu Roash E, Abu Roash G and Upper Bahariya Formations reflecting the occurrence of major normal faults in various directions (mainly NW-SE) forming four way structural traps in shallow reservoirs in down thrown side from major fault and also there way dip closure.",
             "keywords": "Seismic data, Upper Cretaceous, Karama SW Oil Field, Western Desert, Egypt"
-        },{
+        },
+        {
             "id": 7,
             "title": "Investigating the mechanical properties of copper matrix composite enhanced with graphene, fabricated by powder metallurgy technique",
-            "authors": "Mai .Z. Zakia , H.M. Abomostafab, M.M. El-zaidiab, Mohammed A. Tahac,*",
+            "authors": [
+                {
+                    "num": "a",
+                    "text": "M.M. El-Zaidi"
+                },
+                {
+                    "num": "b",
+                    "text": "H.M. Abomostafa"
+                },
+                {
+                    "num": "b",
+                    "text": "M.M. El-zaidi"
+                },
+                {
+                    "num": "c,*",
+                    "text": "Mohammed A. Taha",
+                    "last": true
+                }
+            ],
             "postitions": [
                 {
                     "num": "a",
                     "text": "Department of Basic Science, Higher Institute of Engineering and Technology, Menoufia, Egypt"
-                },{
+                },
+                {
                     "num": "b",
                     "text": "Faculty of Science, Physics Department, Menoufa University, Shebin Elkom, Egypt"
-                },{
+                },
+                {
                     "num": "c",
                     "text": "Solid State Physics Department, National Research Centre, 12622, Dokki, Cairo, Egypt"
                 }
             ],
             "abstract": "The powder metallurgy procedure was used to manufacture Cu-matrix hybrid nanocomposites containing different quantities of silicon carbide (SiC) and graphene nanoparticles in this research. The powders were subjected to compression and then exposed sintering into inert gas for a duration of one hour at three distinct temperatures, reaching a maximum of 850 °C. Furthermore, relative, bulk density, porosity, and mechanical properties characteristics of the sintered samples were analyzed. The findings indicate that the use of SiC and graphene ceramics effectively reduced the density and increased the porosity of samples. Moreover, the Cu matrix nanocomposite of the greatest volume percentage of ceramics (CSF8) exhibited considerable enhancements in ultimate strength, microhardness, and elastic modulus.",
             "keywords": "copper matrix nanocomposites; silicon carbide; elastic moduli; powder metallurgy"
-        },{
+        },
+        {
             "id": 8,
             "title": "Reservoir characterization of the Messinian Abu Madi reservoir in South Abu El Naga gas field, Onshore Nile Delta, Egypt.",
-            "authors": "Mohamed A. Khalifaa, Bassem S. Nabawyb, Mohamed F. Abu-Hashisha, Noha M. Hassana,Ahmed W. Al-Shareif a,c",
+            "authors": [
+                {
+                    "num": "a",
+                    "text": "Mohamed A. Khalifa"
+                },
+                {
+                    "num": "b",
+                    "text": "Bassem S. Nabawy"
+                },
+                {
+                    "num": "a",
+                    "text": "Mohamed F. Abu-Hashish"
+                },
+                {
+                    "num": "a",
+                    "text": "Noha M. Hassan"
+                },
+                {
+                    "num": "a,c",
+                    "text": "Ahmed W. Al-Shareif",
+                    "last": true
+                }
+            ],
             "postitions": [
                 {
                     "num": "a",
                     "text": "Department of Geology, Faculty of Science, Menoufia University, El Menoufia, Egypt."
-                },{
+                },
+                {
                     "num": "b",
                     "text": "Geophysical Sciences Department, National Research Centre, Cairo, Egypt."
-                },{
+                },
+                {
                     "num": "c",
                     "text": "El Wastani Petroleum Company (WASCO), 5th Settlement, New Cairo, Egypt."
                 }

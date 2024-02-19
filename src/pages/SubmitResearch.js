@@ -20,6 +20,7 @@ export default function SubmitReasearch() {
   }
 
   const [content, setContent] = useState("type");
+  const [fileTypeChanged,setFileTypeChanged] = useState("0");
   const [error, setError] = useState("");
   const [searchInfo, setSearchInfo] = useState({
     type: "",
@@ -119,7 +120,7 @@ export default function SubmitReasearch() {
         setError("you must fill all fields");
       } else {
         setError("");
-        setContent("abstract");
+        // setContent("abstract");
       }
     } else if (content === "abstract") {
       if (searchInfo.abstract === "") {
@@ -163,19 +164,18 @@ export default function SubmitReasearch() {
         setContent("files");
       }
     } else if (content === "files") {
-      if (
-        searchInfo.fileType === "" ||
-        searchInfo.fileLink === ""
-      ) {
+      if (searchInfo.fileType === "") {
         setError("you must fill all fields");
-      }else{
+      } else {
         setError("");
         setContent("finish");
       }
-    }else if (content === "comments") {
+    } else if (content === "comments") {
       setContent("reviewers");
     }
   };
+
+  
   const handleSubmit = (event) => {
     event.preventDefault();
     localStorage.setItem("searchInfo", JSON.stringify(searchInfo));
@@ -191,13 +191,18 @@ export default function SubmitReasearch() {
     setResearchReviews({});
     setSearchInfo({});
   };
+  const goBack = () => {
+    window.history.back();
+  };
   return (
     <div className="container">
+        <button className="back-btn" onClick={goBack}><i class="fa-solid fa-arrow-left"></i>back</button>
       <div>
         <h1 className="about-title">Submit Research</h1>
       </div>
+     
       <div className="row">
-        <div className="sidebar col-lg-3">
+        <div className="sidebar col-lg-3 my-3">
           <ul className="card list-unstyled">
             <li className="card-header" onClick={() => setContent("type")}>
               Select Manuscript Type
@@ -231,7 +236,7 @@ export default function SubmitReasearch() {
             </li>
           </ul>
         </div>
-        <div className="col-lg-9 my-4">
+        <div className="col-lg-9 my-3">
           <form
             onSubmit={handleSubmit}
             className="form"
@@ -428,9 +433,7 @@ export default function SubmitReasearch() {
                     className="my-2 col-md-2 col-sm-12"
                     controlId="formGridEmail"
                   >
-                    <Form.Label>
-                      Mid
-                    </Form.Label>
+                    <Form.Label>Mid</Form.Label>
                     <Form.Control
                       onChange={(e) =>
                         setSearchInfo({
@@ -543,9 +546,7 @@ export default function SubmitReasearch() {
                     </Form.Select>
                   </Form.Group>
                   <Form.Group className="my-2 col-md-6 col-sm-12" as={Col}>
-                    <Form.Label>
-                      Phone
-                    </Form.Label>
+                    <Form.Label>Phone</Form.Label>
                     <InputGroup>
                       <Form.Control
                         type="text"
@@ -607,10 +608,22 @@ export default function SubmitReasearch() {
                     type="button"
                     onClick={() => {
                       handleClick();
-                      checkValidation();
+                      // checkValidation();
+                      setContent("abstract");
                     }}
                   >
                     Next<i class="fa-solid fa-arrow-right"></i>
+                  </button>
+                  <button
+                    className="save_author_btn btn btn-success ms-3"
+                    type="button"
+                    onClick={() => {
+                      handleClick();
+                      checkValidation();
+                      
+                    }}
+                  >
+                    Save Author
                   </button>
                 </div>
               </fieldset>
@@ -752,13 +765,13 @@ export default function SubmitReasearch() {
                       }}
                       aria-label="Default select example"
                     >
-                     <option selected disabled>--Select--</option>
+                      <option selected disabled>
+                        --Select--
+                      </option>
                       <option value="Mathematics">Mathematics</option>
                       <option value="ComputerScience">Computer Science</option>
                       <option value="Physics">Physics</option>
-                      <option value="Chemistry">
-                        Chemistry
-                      </option>
+                      <option value="Chemistry">Chemistry</option>
                       <option value="Botany">Botany</option>
                       <option value="Zoology">Zoology</option>
                       <option value="Geology">Geology</option>
@@ -839,14 +852,14 @@ export default function SubmitReasearch() {
                 </div>
                 <div className="d-flex align-items-center justify-content-start">
                   <button
-                  type="button"
+                    type="button"
                     className="next-btn"
                     onClick={() => setContent("subjects")}
                   >
                     <i class=" mx-2 fa-solid fa-arrow-left"></i>previous
                   </button>
                   <button
-                  type="button"
+                    type="button"
                     className="next-btn"
                     onClick={() => {
                       handleClick();
@@ -957,9 +970,7 @@ export default function SubmitReasearch() {
                     className="my-2 col-md-2 col-sm-12"
                     controlId="formGridEmail"
                   >
-                    <Form.Label>
-                      Mid
-                    </Form.Label>
+                    <Form.Label>Mid</Form.Label>
                     <Form.Control
                       onChange={(e) =>
                         setResearchReviews({
@@ -1089,13 +1100,13 @@ export default function SubmitReasearch() {
                       }
                       aria-label="Default select example"
                     >
-                       <option selected disabled>--Select--</option>
+                      <option selected disabled>
+                        --Select--
+                      </option>
                       <option value="Mathematics">Mathematics</option>
                       <option value="ComputerScience">Computer Science</option>
                       <option value="Physics">Physics</option>
-                      <option value="Chemistry">
-                        Chemistry
-                      </option>
+                      <option value="Chemistry">Chemistry</option>
                       <option value="Botany">Botany</option>
                       <option value="Zoology">Zoology</option>
                       <option value="Geology">Geology</option>
@@ -1182,14 +1193,14 @@ export default function SubmitReasearch() {
                 </div>
                 <div className="d-flex align-items-center justify-content-start">
                   <button
-                   type="button"
+                    type="button"
                     className="next-btn"
                     onClick={() => setContent("comments")}
                   >
                     <i class=" mx-2 fa-solid fa-arrow-left"></i>previous
                   </button>
                   <button
-                  type="button"
+                    type="button"
                     className="next-btn"
                     onClick={() => {
                       handleClick();
@@ -1216,7 +1227,11 @@ export default function SubmitReasearch() {
                     "Title Page".
                   </h5>
                 </fieldset>
-                {error && <Alert variant="danger" className="my-2">{error}</Alert>}
+                {error && (
+                  <Alert variant="danger" className="my-2">
+                    {error}
+                  </Alert>
+                )}
                 <div className="content">
                   <Form.Group
                     as={Col}
@@ -1228,11 +1243,13 @@ export default function SubmitReasearch() {
                     </Form.Label>
                     <Form.Select
                       aria-label="Default select example"
-                      onChange={(e) =>
+                      onChange={(e) =>{
                         setSearchInfo({
                           ...searchInfo,
                           fileType: e.target.value,
-                        })
+                        });
+                        setFileTypeChanged(e.target.value);
+                      }
                       }
                     >
                       <option disabled selected>
@@ -1262,26 +1279,20 @@ export default function SubmitReasearch() {
                       style={{ height: "100px" }}
                     />
                   </Form.Group>
-                  <InputGroup as={Col} className="my-2 col-md-6 col-sm-12">
-                    <Form.Control
-                      placeholder="Enter file link (google drive)"
-                      aria-label="Recipient's username"
-                      aria-describedby="basic-addon2"
-                      onChange={(e) =>
-                        setSearchInfo({
-                          ...searchInfo,
-                          fileLink: e.target.value,
-                        })
-                      }
-                    />
-                    <InputGroup.Text id="basic-addon2">
-                      Google Drive
-                    </InputGroup.Text>
-                  </InputGroup>
+                  <Form.Group controlId="formFile" className="mb-3 col-md-6">
+                    <Form.Label>Upload pdf file</Form.Label>
+                    <Form.Control type="file" placeholder="upload pdf file" />
+                  </Form.Group>
+                  {fileTypeChanged == "1" &&
+                  <Form.Group controlId="formFile" className="mb-3 my-2 col-md-6">
+                    <Form.Label>Upload word file</Form.Label>
+                     <Form.Control type="file" placeholder="upload word file"  />
+                  </Form.Group>
+                  }
                 </div>
                 <div className="d-flex align-items-center justify-content-start">
                   <button
-                   type="button"
+                    type="button"
                     className="next-btn"
                     onClick={() => setContent("reviewers")}
                   >
