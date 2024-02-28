@@ -32,6 +32,9 @@ import AbstractPage from './pages/AbstractPage';
 import SubmitReasearch from './pages/SubmitResearch';
 import { history } from './routerConfig';
 import ResearchesStatus from './pages/ResearchesStatus';
+import Dashboard from './pages/Dashboard';
+import AddUser from './pages/AddUser';
+import ViewArtical from './pages/ViewArtical';
 
 function App() {
   return (
@@ -61,6 +64,9 @@ function App() {
           <Route path={'/abstract/:id'} element={<AbstractPage/>} />
           <Route path={'/submitManuscript'} element={<SubmitReasearch/>} />
           <Route path={'/research'} element={<ResearchesStatus/>} />
+          <Route path={'/dashboard'} element={<Dashboard/>} />
+          <Route path={'/dashboard/addUser'} element={<AddUser/>} />
+          <Route path={'/dashboard/viewArtical/:id'} element={<ViewArtical/>} />
         </Routes>
 
         <GoToTop/>

@@ -18,14 +18,27 @@ export default function Login() {
   }
   const handleSubmit = (event) => {
     event.preventDefault();
-    if (userInfo.username === loginInfo.username && userInfo.password === loginInfo.password) {
-      navigate("/");
-      window.location.reload();
-      setError("");
-    }else{
-      console.log("login failed");
-      setError("password or username not correct");
-    }
+    fetch("http://localhost:8000/api/login", {
+      method: "POST",
+      body: JSON.stringify(loginInfo),
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      }
+    }).then((res) => {
+      if (res.status === 200) {
+        console.log(res);
+        res.json().then((data) => {
+          if (data) {
+            localStorage.setItem("userInfo", JSON.stringify(data));
+            navigate("/");
+            window.location.reload();
+          }
+        });
+      }else{
+        setError("password or username not correct");
+      }
+    })
   }
   return (
     <div className="container login">

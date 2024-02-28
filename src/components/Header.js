@@ -1,15 +1,17 @@
 import headImg from "../images/headerimg.png";
 import "../App.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 export default function Header() {
   const userInfo = localStorage.getItem("userInfo")
     ? JSON.parse(localStorage.getItem("userInfo"))
     : "";
-
+  const navigate = useNavigate();
   const logout = () => {
     localStorage.removeItem("userInfo");
-    window.location.reload();
+    // window.location.reload();
+    navigate("/");
+    
   }
 
   return (
@@ -64,11 +66,11 @@ export default function Header() {
                       Editorial Board
                     </Link>
                   </li>
-                  <li>
+                  {/* <li>
                     <Link class="dropdown-item" to={"/jornalInfo/ethics"}>
                       publication ethics
                     </Link>
-                  </li>
+                  </li> */}
                 </ul>
               </li>
               <li class="nav-item">
@@ -148,6 +150,14 @@ export default function Header() {
                         logout
                     </button>
                     </li>
+                    {userInfo.role !== "user" ? (
+                      <li className="nav-item">
+                        <Link className="nav-link" to={"/dashboard"}>dashboard</Link>
+                      </li>
+                    ) : (
+                      <></>
+                    )}
+                    
                 </>
               ) : (
                 <>

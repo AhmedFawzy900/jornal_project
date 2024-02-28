@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import logo from '../images/Al Nouras.jpg';
+import logo from '../images/footer_img.jpeg';
 
 export default function Footer(){
     return(
@@ -76,7 +76,7 @@ export default function Footer(){
                             </a>
                     </div>
                     {/* logo */}
-                    <div class="footer-logo col-md-6">
+                    <div class="footer-logo col-md-12">
                         <img src={logo} className='w-100' alt="" />
                     </div>
                 </div>

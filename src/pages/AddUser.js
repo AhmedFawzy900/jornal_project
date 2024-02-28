@@ -1,19 +1,9 @@
 import { useState } from "react";
 import { Alert, Col, Form, InputGroup, Row } from "react-bootstrap";
 import { useNavigate } from "react-router";
-const generateCaptcha = () => {
-  const characters =
-    "ABCDE123FGHIJKLM4N56OPQRSTUVW789XY145Zabcdefg7582hijklmnop4785qrstuvwxyz123456789";
-  let captcha = "";
-  for (let i = 0; i < 8; i++) {
-    captcha += characters.charAt(Math.floor(Math.random() * characters.length));
-  }
-  return captcha;
-};
-
-export default function Register() {
+  
+export default function AddUser() {
   const [error, setError] = useState("");
-  const [captcha, setCaptcha] = useState(generateCaptcha());
   const [input, setInput] = useState("");
   const [validationResult, setValidationResult] = useState("");
   const navigate = useNavigate();
@@ -38,7 +28,7 @@ export default function Register() {
     username: "",
     password: "",
     comment: "",
-    role: "user",
+    role: "",
   });
   const handleChange = (event) => {
     setInput(event.target.value);
@@ -93,7 +83,8 @@ export default function Register() {
           Accept: "application/json",
         },
       }).then((res) => {
-        navigate("/login");
+        navigate("/dashboard");
+        console.log("done");
       });
     }
   }
@@ -101,21 +92,9 @@ export default function Register() {
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log(userInfo);
-    // Check if the input matches the CAPTCHA code
-    // if (input.toUpperCase() === captcha.toUpperCase()) {
-    //   console.log(userInfo);
-    //   localStorage.setItem("userInfo", JSON.stringify(userInfo));
-    //   navigate("/login");
-    // } else {
-    //   setValidationResult("failed");
-    //   // Generate a new CAPTCHA code
-    //   setCaptcha(generateCaptcha());
-    // }
-    // Clear the input field
 
     setInput("");
   };
-
   return (
     <div className="container register my-3">
       <div>
@@ -156,6 +135,30 @@ export default function Register() {
                       <option value="prof">Prof.</option>
                       <option value="mr">Mr.</option>
                       <option value="mrs">Mrs.</option>
+                    </Form.Select>
+                  </Form.Group>
+                  <Form.Group
+                    as={Col}
+                    className="my-2 col-md-6 col-sm-12"
+                    controlId="formGridEmail"
+                  >
+                    <Form.Label>
+                      Role<span className="text-danger">*</span>
+                    </Form.Label>
+                    <Form.Select
+                      aria-label="Default select example"
+                      onChange={(e) =>
+                        setUserInfo({ ...userInfo, role: e.target.value })
+                      }
+                    >
+                      <option disabled selected>
+                        --Select--
+                      </option>
+                      <option value="managing_editor">Managing Editor</option>
+                      <option value="assistant_editor">Assistant Editor</option>
+                      <option value="editor">Editor</option>
+                      <option value="reviewer">Reviewer</option>
+                      <option value="user">User</option>
                     </Form.Select>
                   </Form.Group>
                 </Row>
@@ -556,39 +559,6 @@ export default function Register() {
                       <span class="slider"></span>
                     </label>
                   </div>
-                </Row>
-
-                <Row className="mb-3">
-                  {/* start captcha */}
-                  <div>
-                    <div className="captcha row my-1 d-flex justify-content-center align-items-center">
-                      <label htmlFor="captcha" className="my-1">
-                        Captcha validation
-                      </label>
-                      <div className="form-group col-lg-4 col-md-12 ">
-                        <img
-                          className="form-control"
-                          src={`https://dummyimage.com/150x50/fff/193687/&text=${captcha}`}
-                          alt="CAPTCHA"
-                        />
-                      </div>
-                      <div className="form-group col-lg-8 col-md-12 ">
-                        <input
-                          className="form-control"
-                          type="text"
-                          value={input}
-                          onChange={handleChange}
-                          placeholder="enter code"
-                        />
-                      </div>
-                    </div>
-                    <div>
-                      {validationResult === "failed" ? (
-                        <p className="text-danger">captcha validation failed</p>
-                      ) : null}
-                    </div>
-                  </div>
-                  {/*end  captcha */}
                 </Row>
                 <Row className="d-flex justify-content-center align-items-center">
                   {/* submit button */}

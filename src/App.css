@@ -895,3 +895,61 @@ legend {
   height: 44px;
   margin-top: 20px;
 }
+/* dashboard style */
+
+.dashboard .sidebar {
+  margin: 0;
+  padding: 0;
+  /* width: 300px; */
+  background-color: #f1f1f1;
+  /* position: fixed; */
+  height: 100%;
+  overflow: auto;
+}
+.dashboard .title{
+    margin: 0;
+    padding: 0;
+    font-size: 21px;
+    padding: 16px;
+    cursor: pointer;
+}
+.dashboard .sidebar a {
+  display: block;
+  color: black;
+  padding: 16px;
+  text-decoration: none;
+  cursor: pointer;
+}
+ 
+.dashboard .sidebar a.active {
+  background-color: #193687;
+  color: white;
+}
+
+.dashboard .sidebar a:hover:not(.active) {
+  background-color: #b9b9b9;
+  color: white;
+}
+
+.dashboard div.content {
+  /* margin-left: 300px; */
+  padding: 1px 16px;
+  /* height: 1000px; */
+}
+
+@media screen and (max-width: 700px) {
+  .dashboard .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+  .dashboard .sidebar a ,.dashboard .title{float: left;}
+  .dashboard div.content {margin-left: 0;}
+}
+
+@media screen and (max-width: 400px) {
+  .dashboard .sidebar a ,.dashboard .title{
+    text-align: center;
+    float: none;
+  }
+}

@@ -20,23 +20,14 @@ export default function SubmitReasearch() {
   }
 
   const [content, setContent] = useState("type");
-  const [fileTypeChanged,setFileTypeChanged] = useState("0");
+  const [authorsArray , setAuthorsArray] = useState([]) ;
+  const [fileTypeChanged, setFileTypeChanged] = useState("0");
   const [error, setError] = useState("");
+  const [reviewerId, setReviewerId] = useState("");
   const [searchInfo, setSearchInfo] = useState({
     type: "",
     fullyTitle: "",
     runnyTitle: "",
-    title: "",
-    firstName: "",
-    midName: "",
-    lastName: "",
-    degree: "",
-    position: "",
-    city: "",
-    phone: "",
-    Affiliation: "",
-    orcid: "",
-    email: "",
     abstract: "",
     keywords: "",
     subjects: "",
@@ -45,6 +36,21 @@ export default function SubmitReasearch() {
     fileType: "",
     fileDescription: "",
     fileLink: "",
+    reviewer_id: "",
+    status:"pending"
+  });
+  const [authors, setAuthors] = useState({
+    email: "",
+    title: "",
+    firstName: "",
+    midName: "",
+    lastName: "",
+    orcid: "",
+    degree: "",
+    position: "",
+    city: "",
+    phone: "",
+    Affiliation: "",
   });
   const [researchReviews, setResearchReviews] = useState({
     title: "",
@@ -59,7 +65,8 @@ export default function SubmitReasearch() {
     orcid: "",
     email: "",
     spacifily1: "",
-    reasons: "",
+    reasons: ""
+
   });
   const handleClick = () => {
     console.log(searchInfo);
@@ -105,17 +112,17 @@ export default function SubmitReasearch() {
       }
     } else if (content === "author") {
       if (
-        searchInfo.title === "" ||
-        searchInfo.firstName === "" ||
-        searchInfo.midName === "" ||
-        searchInfo.lastName === "" ||
-        searchInfo.degree === "" ||
-        searchInfo.position === "" ||
-        searchInfo.city === "" ||
-        searchInfo.phone === "" ||
-        searchInfo.Affiliation === "" ||
-        searchInfo.orcid === "" ||
-        searchInfo.email === ""
+        authors.title === "" ||
+        authors.firstName === "" ||
+        authors.midName === "" ||
+        authors.lastName === "" ||
+        authors.degree === "" ||
+        authors.position === "" ||
+        authors.city === "" ||
+        authors.phone === "" ||
+        authors.Affiliation === "" ||
+        authors.orcid === "" ||
+        authors.email === ""
       ) {
         setError("you must fill all fields");
       } else {
@@ -162,6 +169,7 @@ export default function SubmitReasearch() {
       } else {
         setError("");
         setContent("files");
+        saveReviewer();
       }
     } else if (content === "files") {
       if (searchInfo.fileType === "") {
@@ -169,13 +177,137 @@ export default function SubmitReasearch() {
       } else {
         setError("");
         setContent("finish");
+        console.log(searchInfo, authors, researchReviews);
       }
     } else if (content === "comments") {
       setContent("reviewers");
     }
   };
 
-  
+  // function for save research to api
+  const saveResearch = () => {
+    const formData = new FormData();
+  // Append the file
+    formData.append("type",searchInfo.type);
+    formData.append("fullyTitle",searchInfo.fullyTitle);
+    formData.append("runnyTitle",searchInfo.runnyTitle);
+    formData.append("abstract",searchInfo.abstract);
+    formData.append("keywords",searchInfo.keywords);
+    formData.append("abstract",searchInfo.abstract);
+    formData.append("abstract",searchInfo.abstract);
+    formData.append("subjects",searchInfo.subjects);
+    formData.append("moreSubjects",searchInfo.moreSubjects);
+    formData.append("comment",searchInfo.comment);
+    formData.append("fileDescription",searchInfo.fileDescription);
+    formData.append("fileType",searchInfo.fileType);
+    formData.append("fileLink",searchInfo.fileLink);
+    formData.append("reviewer_id",reviewerId);
+    formData.append("authorsArray",JSON.stringify(authorsArray));
+    formData.append("status","pending");
+    console.log(formData);
+    console.log(searchInfo);
+    console.log(authorsArray);
+    fetch("http://localhost:8000/api/saveResearch", {
+      method: "POST",
+      body: formData,
+    }).then((res) => {
+      res.json().then((data) => {
+        if (data) {
+          console.log("subitted research");
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "Your work has been saved",
+            showConfirmButton: false,
+            timer: 1300,
+          });
+          setContent("type");
+          setResearchReviews({});
+          setSearchInfo({});
+        }
+      });
+    });
+  };
+  // function to save author
+  const saveAuthor = () => {
+    console.log(authors);
+    fetch("http://localhost:8000/api/saveAuthors", {
+      method: "POST",
+      body: JSON.stringify(authors),
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json",
+      },
+    }).then((res) => {
+      res.json().then((data) => {
+        if (data) {
+          setAuthorsArray([...authorsArray, data.id]);
+          console.log(authorsArray);
+          console.log("reviewer submitted");
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "Authors Saved Successfully",
+            showConfirmButton: false,
+            timer: 1300,
+          });
+          setAuthors({
+            email: "",
+            title: "",
+            firstName: "",
+            midName: "",
+            lastName: "",
+            orcid: "",
+            degree: "",
+            position: "",
+            city: "",
+            phone: "",
+            Affiliation: "",
+          })
+        }
+      });
+    });
+  };
+  // save reviewer 
+  const saveReviewer= () => {
+    console.log(researchReviews);
+    setSearchInfo({ ...searchInfo, reviewer_id: reviewerId });
+    fetch("http://localhost:8000/api/SaveReviewer", {
+      method: "POST",
+      body: JSON.stringify(researchReviews),
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json",
+      },
+    }).then((res) => {
+      res.json().then((data) => {
+        if (data) {
+          console.log(data.id);
+          setReviewerId(data.id);
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "Reviewer Saved Successfully",
+            showConfirmButton: false,
+            timer: 1300,
+          });
+          setResearchReviews({
+            email: "",
+            title: "",
+            firstName: "",
+            midName: "",
+            lastName: "",
+            orcid: "",
+            degree: "",
+            position: "",
+            city: "",
+            phone: "",
+            Affiliation: "",
+          })
+        }
+      });
+    });
+  };
   const handleSubmit = (event) => {
     event.preventDefault();
     localStorage.setItem("searchInfo", JSON.stringify(searchInfo));
@@ -196,11 +328,13 @@ export default function SubmitReasearch() {
   };
   return (
     <div className="container">
-        <button className="back-btn" onClick={goBack}><i class="fa-solid fa-arrow-left"></i>back</button>
+      <button className="back-btn" onClick={goBack}>
+        <i class="fa-solid fa-arrow-left"></i>back
+      </button>
       <div>
         <h1 className="about-title">Submit Research</h1>
       </div>
-     
+
       <div className="row">
         <div className="sidebar col-lg-3 my-3">
           <ul className="card list-unstyled">
@@ -369,9 +503,10 @@ export default function SubmitReasearch() {
                     <InputGroup>
                       <Form.Control
                         type="text"
+                        value={authors.email}
                         onChange={(e) =>
-                          setSearchInfo({
-                            ...searchInfo,
+                          setAuthors({
+                            ...authors,
                             email: e.target.value,
                           })
                         }
@@ -391,11 +526,10 @@ export default function SubmitReasearch() {
                     </Form.Label>
                     <Form.Select
                       aria-label="Default select example"
-                      onChange={(e) =>
-                        setSearchInfo({ ...searchInfo, title: e.target.value })
-                      }
+                      value={authors.title !== "" ? authors.title : "none"}
+                      onChange={(e) => setAuthors({ ...authors, title: e.target.value })}
                     >
-                      <option disabled selected>
+                      <option value="none" disabled selected>
                         --Select--
                       </option>
                       <option value="dr">Dr.</option>
@@ -414,9 +548,10 @@ export default function SubmitReasearch() {
                     </Form.Label>
                     <InputGroup>
                       <Form.Control
+                        value={authors.firstName}
                         onChange={(e) =>
-                          setSearchInfo({
-                            ...searchInfo,
+                          setAuthors({
+                            ...authors,
                             firstName: e.target.value,
                           })
                         }
@@ -435,9 +570,10 @@ export default function SubmitReasearch() {
                   >
                     <Form.Label>Mid</Form.Label>
                     <Form.Control
+                      value={authors.midName}
                       onChange={(e) =>
-                        setSearchInfo({
-                          ...searchInfo,
+                        setAuthors({
+                          ...authors,
                           midName: e.target.value,
                         })
                       }
@@ -454,9 +590,10 @@ export default function SubmitReasearch() {
                     </Form.Label>
                     <InputGroup>
                       <Form.Control
+                        value={authors.lastName}
                         onChange={(e) =>
-                          setSearchInfo({
-                            ...searchInfo,
+                          setAuthors({
+                            ...authors,
                             lastName: e.target.value,
                           })
                         }
@@ -475,11 +612,12 @@ export default function SubmitReasearch() {
                     <Form.Label>ORCID</Form.Label>
                     <InputGroup>
                       <Form.Control
+                        value={authors.orcid}
                         type="text"
                         placeholder="0000-0000-0000-0000"
                         onChange={(e) =>
-                          setSearchInfo({
-                            ...searchInfo,
+                          setAuthors({
+                            ...authors,
                             orcid: e.target.value,
                           })
                         }
@@ -499,11 +637,10 @@ export default function SubmitReasearch() {
                     </Form.Label>
                     <Form.Select
                       aria-label="Default select example"
-                      onChange={(e) =>
-                        setSearchInfo({ ...searchInfo, degree: e.target.value })
-                      }
+                      value={authors.degree !== "" ? authors.degree : "none"}
+                      onChange={(e) => setAuthors({ ...authors, degree: e.target.value })}
                     >
-                      <option disabled selected>
+                      <option value="none" disabled selected>
                         --Select--
                       </option>
                       <option value="phd">ph.D.</option>
@@ -525,14 +662,10 @@ export default function SubmitReasearch() {
                     </Form.Label>
                     <Form.Select
                       aria-label="Default select example"
-                      onChange={(e) =>
-                        setSearchInfo({
-                          ...searchInfo,
-                          position: e.target.value,
-                        })
-                      }
+                      value={authors.position !== "" ? authors.position : "none"}
+                      onChange={(e) => setAuthors({...authors,position: e.target.value})}
                     >
-                      <option selected disabled>
+                      <option value={"none"} selected disabled>
                         --Select--
                       </option>
                       <option value="professor">professor</option>
@@ -550,9 +683,10 @@ export default function SubmitReasearch() {
                     <InputGroup>
                       <Form.Control
                         type="text"
+                        value={authors.phone}
                         onChange={(e) =>
-                          setSearchInfo({
-                            ...searchInfo,
+                          setAuthors({
+                            ...authors,
                             phone: e.target.value,
                           })
                         }
@@ -569,8 +703,9 @@ export default function SubmitReasearch() {
                     <InputGroup>
                       <Form.Control
                         type="text"
+                        value={authors.city}
                         onChange={(e) =>
-                          setSearchInfo({ ...searchInfo, city: e.target.value })
+                          setAuthors({ ...authors, city: e.target.value })
                         }
                       />
                       <InputGroup.Text>
@@ -583,9 +718,10 @@ export default function SubmitReasearch() {
                       Affiliation<span className="text-danger">*</span>
                     </Form.Label>
                     <Form.Control
+                      value={authors.Affiliation}
                       onChange={(e) =>
-                        setSearchInfo({
-                          ...searchInfo,
+                        setAuthors({
+                          ...authors,
                           Affiliation: e.target.value,
                         })
                       }
@@ -618,9 +754,9 @@ export default function SubmitReasearch() {
                     className="save_author_btn btn btn-success ms-3"
                     type="button"
                     onClick={() => {
-                      handleClick();
-                      checkValidation();
-                      
+                      // handleClick();
+                      // checkValidation();
+                      saveAuthor();
                     }}
                   >
                     Save Author
@@ -1243,14 +1379,13 @@ export default function SubmitReasearch() {
                     </Form.Label>
                     <Form.Select
                       aria-label="Default select example"
-                      onChange={(e) =>{
+                      onChange={(e) => {
                         setSearchInfo({
                           ...searchInfo,
                           fileType: e.target.value,
                         });
                         setFileTypeChanged(e.target.value);
-                      }
-                      }
+                      }}
                     >
                       <option disabled selected>
                         --Select--
@@ -1281,14 +1416,20 @@ export default function SubmitReasearch() {
                   </Form.Group>
                   <Form.Group controlId="formFile" className="mb-3 col-md-6">
                     <Form.Label>Upload pdf file</Form.Label>
-                    <Form.Control type="file" placeholder="upload pdf file" />
+                    <Form.Control type="file" name="fileLink" onChange={(e)=>setSearchInfo({...searchInfo,fileLink:e.target.files[0]})} placeholder="upload pdf file" />
                   </Form.Group>
-                  {fileTypeChanged == "1" &&
-                  <Form.Group controlId="formFile" className="mb-3 my-2 col-md-6">
-                    <Form.Label>Upload word file</Form.Label>
-                     <Form.Control type="file" placeholder="upload word file"  />
-                  </Form.Group>
-                  }
+                  {fileTypeChanged == "1" && (
+                    <Form.Group
+                      controlId="formFile"
+                      className="mb-3 my-2 col-md-6"
+                    >
+                      <Form.Label>Upload word file</Form.Label>
+                      <Form.Control
+                        type="file"
+                        placeholder="upload word file"
+                      />
+                    </Form.Group>
+                  )}
                 </div>
                 <div className="d-flex align-items-center justify-content-start">
                   <button
@@ -1377,12 +1518,12 @@ export default function SubmitReasearch() {
                       </tr>
                       <tr>
                         <td>
-                          {searchInfo.firstName} {searchInfo.lastName}
+                          {authors.firstName} {authors.lastName}
                         </td>
-                        <td>{searchInfo.email}</td>
-                        <td>{searchInfo.degree}</td>
-                        <td>{searchInfo.position}</td>
-                        <td>{searchInfo.title}</td>
+                        <td>{authors.email}</td>
+                        <td>{authors.degree}</td>
+                        <td>{authors.position}</td>
+                        <td>{authors.title}</td>
                       </tr>
                     </tbody>
                   </Table>
@@ -1395,7 +1536,11 @@ export default function SubmitReasearch() {
                   >
                     <i class=" mx-2 fa-solid fa-arrow-left"></i>previous
                   </button>
-                  <button className="next-btn submit-btn" type="submit">
+                  <button
+                    className="next-btn submit-btn"
+                    type="button"
+                    onClick={saveResearch}
+                  >
                     Submit research
                   </button>
                 </div>
