@@ -6,7 +6,7 @@ export default function ReviewArticals(){
   // get all articals
   const [articals, setArticals] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:8000/api/researchs")
+    fetch("https://eissa-group.com/api/researchs")
         .then((res) => {
             res.json().then((data) => {
                 console.log(data);
@@ -26,7 +26,11 @@ export default function ReviewArticals(){
           </tr>
         </thead>
         <tbody>
-          {articals.filter((artical) => artical.status === "pending").map((artical) => (
+          {articals
+          .filter((artical) => artical.status != "resubmit")
+          .filter((artical) => artical.status != "rejected")
+          .filter((artical) => artical.status != "Accepted")
+          .map((artical) => (
             <tr>
               <td>{artical.id}</td>
               <td>{artical.fullyTitle}</td>

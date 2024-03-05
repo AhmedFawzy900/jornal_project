@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Alert, Col, Form, InputGroup, Row } from "react-bootstrap";
 import { useNavigate } from "react-router";
 const generateCaptcha = () => {
@@ -17,6 +17,7 @@ export default function Register() {
   const [input, setInput] = useState("");
   const [validationResult, setValidationResult] = useState("");
   const navigate = useNavigate();
+  const [allUsers , setAllUsers] = useState([]);
   const [userInfo, setUserInfo] = useState({
     title: "",
     firstName: "",
@@ -40,6 +41,16 @@ export default function Register() {
     comment: "",
     role: "user",
   });
+  const getAllUsers = () => {
+    fetch("https://eissa-group.com/api/users")
+      .then((res) => res.json())
+      .then((data) => {
+        setAllUsers(data);
+      })
+  }
+  useEffect(() => {
+    getAllUsers()
+  },[]);
   const handleChange = (event) => {
     setInput(event.target.value);
   };
@@ -59,6 +70,10 @@ export default function Register() {
       !userInfo.password
     ) {
       setError("Please fill all the required fields *");
+    }else if(allUsers.find(user => user.email === userInfo.email)){
+      setError("Email already exists");
+    }else if(allUsers.find(user => user.username === userInfo.username)){
+      setError("Username already exists");
     }else{
       setError("")
       let item = {
@@ -85,7 +100,7 @@ export default function Register() {
         role: userInfo.role,
       };
       console.log(item);
-      let result = await fetch("http://localhost:8000/api/register", {
+      let result = await fetch("https://eissa-group.com/api/register", {
         method: "POST",
         body: JSON.stringify(item),
         headers: {
@@ -102,15 +117,16 @@ export default function Register() {
     event.preventDefault();
     console.log(userInfo);
     // Check if the input matches the CAPTCHA code
-    // if (input.toUpperCase() === captcha.toUpperCase()) {
-    //   console.log(userInfo);
-    //   localStorage.setItem("userInfo", JSON.stringify(userInfo));
-    //   navigate("/login");
-    // } else {
-    //   setValidationResult("failed");
-    //   // Generate a new CAPTCHA code
-    //   setCaptcha(generateCaptcha());
-    // }
+    if (input.toUpperCase() === captcha.toUpperCase()) {
+      console.log(userInfo);
+      register();
+      // localStorage.setItem("userInfo", JSON.stringify(userInfo));
+      // navigate("/login");
+    } else {
+      setValidationResult("failed");
+      // Generate a new CAPTCHA code
+      setCaptcha(generateCaptcha());
+    }
     // Clear the input field
 
     setInput("");
@@ -148,6 +164,7 @@ export default function Register() {
                       onChange={(e) =>
                         setUserInfo({ ...userInfo, title: e.target.value })
                       }
+                      required
                     >
                       <option disabled selected>
                         --Select--
@@ -513,7 +530,7 @@ export default function Register() {
                         }
                       />
                       <InputGroup.Text>
-                        <i class="icon fa-solid fa-envelope"></i>
+                        <i class="icon fa-solid fa-lock"></i>
                       </InputGroup.Text>
                     </InputGroup>
                   </Form.Group>
@@ -533,7 +550,7 @@ export default function Register() {
                     />
                   </Form.Group>
                 </Row>
-                <Row>
+                {/* <Row>
                   <div class="form-group mb-3">
                     <label class="control-label mx-1">
                       Available as Reviewer
@@ -556,7 +573,7 @@ export default function Register() {
                       <span class="slider"></span>
                     </label>
                   </div>
-                </Row>
+                </Row> */}
 
                 <Row className="mb-3">
                   {/* start captcha */}
@@ -594,8 +611,6 @@ export default function Register() {
                   {/* submit button */}
                   <div className="d-flex justify-content-center align-items-center form-group">
                     <button
-                      type="button"
-                      onClick={register}
                       className=" btn btn-primary"
                     >
                       Save

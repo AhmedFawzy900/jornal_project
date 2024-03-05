@@ -8,6 +8,7 @@ import { history } from "../routerConfig";
 import { Alert, Dropdown, Form, FormGroup, Table } from "react-bootstrap";
 import { Col, InputGroup, Row } from "react-bootstrap";
 import Swal from "sweetalert2";
+import emailjs from "emailjs-com";
 
 export default function SubmitReasearch() {
   const navigate = useNavigate();
@@ -20,7 +21,7 @@ export default function SubmitReasearch() {
   }
 
   const [content, setContent] = useState("type");
-  const [authorsArray , setAuthorsArray] = useState([]) ;
+  const [authorsArray, setAuthorsArray] = useState([]);
   const [fileTypeChanged, setFileTypeChanged] = useState("0");
   const [error, setError] = useState("");
   const [reviewerId, setReviewerId] = useState("");
@@ -36,8 +37,10 @@ export default function SubmitReasearch() {
     fileType: "",
     fileDescription: "",
     fileLink: "",
+    fileLink2: "",
+    mainAuthor_id: userInfo.id,
     reviewer_id: "",
-    status:"pending"
+    status: "pending",
   });
   const [authors, setAuthors] = useState({
     email: "",
@@ -65,8 +68,7 @@ export default function SubmitReasearch() {
     orcid: "",
     email: "",
     spacifily1: "",
-    reasons: ""
-
+    reasons: "",
   });
   const handleClick = () => {
     console.log(searchInfo);
@@ -187,40 +189,69 @@ export default function SubmitReasearch() {
   // function for save research to api
   const saveResearch = () => {
     const formData = new FormData();
-  // Append the file
-    formData.append("type",searchInfo.type);
-    formData.append("fullyTitle",searchInfo.fullyTitle);
-    formData.append("runnyTitle",searchInfo.runnyTitle);
-    formData.append("abstract",searchInfo.abstract);
-    formData.append("keywords",searchInfo.keywords);
-    formData.append("abstract",searchInfo.abstract);
-    formData.append("abstract",searchInfo.abstract);
-    formData.append("subjects",searchInfo.subjects);
-    formData.append("moreSubjects",searchInfo.moreSubjects);
-    formData.append("comment",searchInfo.comment);
-    formData.append("fileDescription",searchInfo.fileDescription);
-    formData.append("fileType",searchInfo.fileType);
-    formData.append("fileLink",searchInfo.fileLink);
-    formData.append("reviewer_id",reviewerId);
-    formData.append("authorsArray",JSON.stringify(authorsArray));
-    formData.append("status","pending");
+    // Append the file
+    formData.append("type", searchInfo.type);
+    formData.append("fullyTitle", searchInfo.fullyTitle);
+    formData.append("runnyTitle", searchInfo.runnyTitle);
+    formData.append("abstract", searchInfo.abstract);
+    formData.append("keywords", searchInfo.keywords);
+    formData.append("abstract", searchInfo.abstract);
+    formData.append("abstract", searchInfo.abstract);
+    formData.append("subjects", searchInfo.subjects);
+    formData.append("moreSubjects", searchInfo.moreSubjects);
+    formData.append("comment", searchInfo.comment);
+    formData.append("fileDescription", searchInfo.fileDescription);
+    formData.append("fileType", searchInfo.fileType);
+    formData.append("fileLink", searchInfo.fileLink);
+    formData.append("mainAuthor_id", searchInfo.mainAuthor_id);
+    if (searchInfo.fileLink2 !== "") {
+      formData.append("fileLink2", searchInfo.fileLink2);
+      console.log("link 2 added");
+    } else {
+      console.log("link 2 not added");
+    }
+    formData.append("reviewer_id", reviewerId);
+    formData.append("authorsArray", JSON.stringify(authorsArray));
+    formData.append("status", "pending");
     console.log(formData);
     console.log(searchInfo);
     console.log(authorsArray);
-    fetch("http://localhost:8000/api/saveResearch", {
+    fetch("https://eissa-group.com/api/saveResearch", {
       method: "POST",
       body: formData,
     }).then((res) => {
       res.json().then((data) => {
         if (data) {
-          console.log("subitted research");
-          Swal.fire({
-            position: "center",
-            icon: "success",
-            title: "Your work has been saved",
-            showConfirmButton: false,
-            timer: 1300,
-          });
+          const recipientEmail = userInfo.email;
+          const senderEmail = "ahmedfawzy69513@gmail.com";
+          try {
+            emailjs.send(
+              "service_3exhder",
+              "template_gqdsfjc",
+              {
+                to_name: userInfo.firstName + " " + userInfo.lastName,
+                to_email: recipientEmail,
+                from_email: "journal@gmail.com",
+              },
+              "iy1BkJev9_Y8yfhuj"
+            );
+            console.log("Email sent successfully!");
+            Swal.fire({
+              title: "Thank you!",
+              text: "Your research has been submitted successfully!",
+              icon: "success",
+              showConfirmButton: false,
+              timer: 1200,
+            });
+            navigate("/");
+          } catch (error) {
+            console.error("Failed to send email:", error);
+            Swal.fire({
+              icon: "error",
+              title: "Oops...",
+              text: "Something went wrong please try again!",
+            });
+          }
           setContent("type");
           setResearchReviews({});
           setSearchInfo({});
@@ -231,12 +262,12 @@ export default function SubmitReasearch() {
   // function to save author
   const saveAuthor = () => {
     console.log(authors);
-    fetch("http://localhost:8000/api/saveAuthors", {
+    fetch("https://eissa-group.com/api/saveAuthors", {
       method: "POST",
       body: JSON.stringify(authors),
       headers: {
         "Content-Type": "application/json",
-        "Accept": "application/json",
+        Accept: "application/json",
       },
     }).then((res) => {
       res.json().then((data) => {
@@ -263,21 +294,21 @@ export default function SubmitReasearch() {
             city: "",
             phone: "",
             Affiliation: "",
-          })
+          });
         }
       });
     });
   };
-  // save reviewer 
-  const saveReviewer= () => {
+  // save reviewer
+  const saveReviewer = () => {
     console.log(researchReviews);
     setSearchInfo({ ...searchInfo, reviewer_id: reviewerId });
-    fetch("http://localhost:8000/api/SaveReviewer", {
+    fetch("https://eissa-group.com/api/SaveReviewer", {
       method: "POST",
       body: JSON.stringify(researchReviews),
       headers: {
         "Content-Type": "application/json",
-        "Accept": "application/json",
+        Accept: "application/json",
       },
     }).then((res) => {
       res.json().then((data) => {
@@ -303,7 +334,7 @@ export default function SubmitReasearch() {
             city: "",
             phone: "",
             Affiliation: "",
-          })
+          });
         }
       });
     });
@@ -527,7 +558,9 @@ export default function SubmitReasearch() {
                     <Form.Select
                       aria-label="Default select example"
                       value={authors.title !== "" ? authors.title : "none"}
-                      onChange={(e) => setAuthors({ ...authors, title: e.target.value })}
+                      onChange={(e) =>
+                        setAuthors({ ...authors, title: e.target.value })
+                      }
                     >
                       <option value="none" disabled selected>
                         --Select--
@@ -638,7 +671,9 @@ export default function SubmitReasearch() {
                     <Form.Select
                       aria-label="Default select example"
                       value={authors.degree !== "" ? authors.degree : "none"}
-                      onChange={(e) => setAuthors({ ...authors, degree: e.target.value })}
+                      onChange={(e) =>
+                        setAuthors({ ...authors, degree: e.target.value })
+                      }
                     >
                       <option value="none" disabled selected>
                         --Select--
@@ -662,8 +697,12 @@ export default function SubmitReasearch() {
                     </Form.Label>
                     <Form.Select
                       aria-label="Default select example"
-                      value={authors.position !== "" ? authors.position : "none"}
-                      onChange={(e) => setAuthors({...authors,position: e.target.value})}
+                      value={
+                        authors.position !== "" ? authors.position : "none"
+                      }
+                      onChange={(e) =>
+                        setAuthors({ ...authors, position: e.target.value })
+                      }
                     >
                       <option value={"none"} selected disabled>
                         --Select--
@@ -1416,7 +1455,17 @@ export default function SubmitReasearch() {
                   </Form.Group>
                   <Form.Group controlId="formFile" className="mb-3 col-md-6">
                     <Form.Label>Upload pdf file</Form.Label>
-                    <Form.Control type="file" name="fileLink" onChange={(e)=>setSearchInfo({...searchInfo,fileLink:e.target.files[0]})} placeholder="upload pdf file" />
+                    <Form.Control
+                      type="file"
+                      name="fileLink"
+                      onChange={(e) =>
+                        setSearchInfo({
+                          ...searchInfo,
+                          fileLink: e.target.files[0],
+                        })
+                      }
+                      placeholder="upload pdf file"
+                    />
                   </Form.Group>
                   {fileTypeChanged == "1" && (
                     <Form.Group
@@ -1425,6 +1474,12 @@ export default function SubmitReasearch() {
                     >
                       <Form.Label>Upload word file</Form.Label>
                       <Form.Control
+                        onChange={(e) =>
+                          setSearchInfo({
+                            ...searchInfo,
+                            fileLink2: e.target.files[0],
+                          })
+                        }
                         type="file"
                         placeholder="upload word file"
                       />
@@ -1482,48 +1537,6 @@ export default function SubmitReasearch() {
                         <td>{searchInfo.runnyTitle}</td>
                         <td>{searchInfo.abstract}</td>
                         <td>{searchInfo.keywords}</td>
-                      </tr>
-                    </tbody>
-                  </Table>
-                  <h6 className="">Reviewer details:</h6>
-                  <Table striped bordered hover>
-                    <tbody>
-                      <tr>
-                        <td>Name</td>
-                        <td>Email</td>
-                        <td>Degree </td>
-                        <td>position</td>
-                        <td>spacifilty</td>
-                      </tr>
-                      <tr>
-                        <td>
-                          {researchReviews.firstName} {researchReviews.lastName}
-                        </td>
-                        <td>{researchReviews.email}</td>
-                        <td>{researchReviews.degree}</td>
-                        <td>{researchReviews.position}</td>
-                        <td>{researchReviews.spacifily1}</td>
-                      </tr>
-                    </tbody>
-                  </Table>
-                  <h6 className="">Author details:</h6>
-                  <Table striped bordered hover>
-                    <tbody>
-                      <tr>
-                        <td>Name</td>
-                        <td>Email</td>
-                        <td>Degree </td>
-                        <td>position</td>
-                        <td>author title</td>
-                      </tr>
-                      <tr>
-                        <td>
-                          {authors.firstName} {authors.lastName}
-                        </td>
-                        <td>{authors.email}</td>
-                        <td>{authors.degree}</td>
-                        <td>{authors.position}</td>
-                        <td>{authors.title}</td>
                       </tr>
                     </tbody>
                   </Table>

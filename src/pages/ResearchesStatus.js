@@ -10,15 +10,16 @@ export default function ResearchesStatus() {
           </li>
           <li className="card-body ">
                 <ul className="list-unstyled new_research">
-                    <li><Link className="tag_a" to={"/submitManuscript"}>Submit a New Manuscript</Link> <span className="badge">0</span></li>
-                    <li><Link className="tag_a" to={"#"}>Incomplete Submissions</Link> <span className="badge">0</span></li>
+                    <li><Link className="tag_a" to={"/submitManuscript"}>Submit a New Manuscript</Link> </li>
+                    <li><Link className="tag_a" to={"/submitedArticals"}>Submited Manuscripts</Link> </li>
+                    {/* <li><Link className="tag_a" to={"#"}>Incomplete Submissions</Link> <span className="badge">0</span></li>
                     <li><Link className="tag_a" to={"#"}>Submissions Sent Back to Author </Link> <span className="badge">0</span></li>
                     <li><Link className="tag_a" to={"#"}>Submissions Being Processed </Link> <span className="badge">0</span></li>
-                    <li><Link className="tag_a" to={"#"}>Submissions you have contributed as co-author  </Link> <span className="badge">0</span></li>
+                    <li><Link className="tag_a" to={"#"}>Submissions you have contributed as co-author  </Link> <span className="badge">0</span></li> */}
                 </ul>
           </li>
         </ul>
-        <ul className="card list-unstyled mb-3">
+        {/* <ul className="card list-unstyled mb-3">
           <li className="card-header">
           Submissions Needing Revision
           </li>
@@ -41,7 +42,7 @@ export default function ResearchesStatus() {
                     
                 </ul>
           </li>
-        </ul>
+        </ul> */}
       </div>
     </div>
   );

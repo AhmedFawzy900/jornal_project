@@ -46,58 +46,62 @@ export default function SubmitReasearch() {
   };
   return (
     <div className="dashboard my-3">
-      <div className="row container"> 
-        <div class="sidebar col-lg-3 col-md-3 col-sm-12">
-          <h1 className="title" >Dashboard</h1>
-          {userInfo && userInfo.role === "managing_editor" && (  
-            <a className={active === "users" ? "active" : ""} href="#users" onClick={(e)=>{setActive("users");setContent("users")}}>
-              All Users
-            </a>
-          )}
-          <a href="#" className={active === "review_articles" ? "active" : ""} onClick={(e)=>{setActive("review_articles");setContent("review_articles")}}>Articles To Review</a>
-          <a href="#" className={active === "articals_feedbacks" ? "active" : ""} onClick={(e)=>{setActive("articals_feedbacks");setContent("articals_feedbacks")}}>Articals Feedback</a>
-        </div>
-        <div class="content my-2 col-lg-9 col-md-8 col-sm-12">
-          {content === "users" &&(
-            <>
-              <div className="d-flex justify-content-between align-items-center">
-                <h2>users</h2>
-                <button className="btn btn-primary my-2" onClick={console.log("add")} ><Link className="text-white text-decoration-none " to="/dashboard/addUser">Add User</Link></button>
-              </div>
-              <Users/>
-            </>
-          )}
-          {content === "review_articles" && (
-            <>
-              <h2>articles</h2>
-              {/* articals for manger */}
-              {userInfo.role === "managing_editor" && (
-                <ReviewArticals/>
-              )}
-              {/* articals for associated editor */}
-              {userInfo.role === "assistant_editor" && (
-                <ReviewArticalsForAss/>
-              )
-              }
-              {userInfo.role === "Editor" && (
-                <ReviewArticalsForEditor/>
-              )
-              }
-              {userInfo.role === "Reviewer" && (
-                <ReviewArticalsForReviewer/>
-              )
-              }
-
-            </>
-          )}
-          {
-            content === "articals_feedbacks" && (
+      <div className="container"> 
+       <div className="row">
+          <div class="sidebar col-lg-3 col-md-3 col-sm-12">
+            <h1 className="title" >Dashboard</h1>
+            {userInfo && userInfo.role === "managing_editor" && (  
+              <a className={active === "users" ? "active" : ""} href="#users" onClick={(e)=>{setActive("users");setContent("users")}}>
+                All Users
+              </a>
+            )}
+            <a href="#" className={active === "review_articles" ? "active" : ""} onClick={(e)=>{setActive("review_articles");setContent("review_articles")}}>Articles To Review</a>
+            {userInfo && userInfo.role !=="Reviewer" && (
+              <a href="#" className={active === "articals_feedbacks" ? "active" : ""} onClick={(e)=>{setActive("articals_feedbacks");setContent("articals_feedbacks")}}>Articals Feedback</a>
+            )}
+          </div>
+          <div class="content my-2 col-lg-9 col-md-9 col-sm-12">
+            {content === "users" &&(
               <>
-                <ArticalsFeedbacks/>
+                <div className="d-flex justify-content-between align-items-center">
+                  <h2>users</h2>
+                  <button className="btn btn-primary my-2" onClick={console.log("add")} ><Link className="text-white text-decoration-none " to="/dashboard/addUser">Add User</Link></button>
+                </div>
+                <Users/>
               </>
-            )
-          }
-        </div>
+            )}
+            {content === "review_articles" && (
+              <>
+                <h2>articles</h2>
+                {/* articals for manger */}
+                {userInfo.role === "managing_editor" && (
+                  <ReviewArticals/>
+                )}
+                {/* articals for associated editor */}
+                {userInfo.role === "assistant_editor" && (
+                  <ReviewArticalsForAss/>
+                )
+                }
+                {userInfo.role === "Editor" && (
+                  <ReviewArticalsForEditor/>
+                )
+                }
+                {userInfo.role === "Reviewer" && (
+                  <ReviewArticalsForReviewer/>
+                )
+                }
+
+              </>
+            )}
+            {
+              content === "articals_feedbacks" && (
+                <>
+                  <ArticalsFeedbacks/>
+                </>
+              )
+            }
+          </div>
+       </div>
       </div>
     </div>
   );

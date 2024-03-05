@@ -7,7 +7,7 @@ export default function Users() {
 
     useEffect(() => {
         // fetch all users
-        fetch("http://localhost:8000/api/users")
+        fetch("https://eissa-group.com/api/users")
             .then((res) => {
                 res.json().then((data) => {
                     console.log(data);
@@ -28,7 +28,7 @@ export default function Users() {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:8000/api/deleteUser/${userId}`, {
+                fetch(`https://eissa-group.com/api/deleteUser/${userId}`, {
                     method: "DELETE",
                 }).then(() => {
                     // Remove the deleted user from the state
@@ -39,33 +39,35 @@ export default function Users() {
     };
 
     return (
-        <Table striped bordered hover>
-            <thead>
-                <tr>
-                    <th>#</th>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Email</th>
-                    <th>Position</th>
-                    <th>Degree</th>
-                    <th>Role</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                {users.map((user) => (
-                    <tr key={user.id}>
-                        <td>{user.id}</td>
-                        <td>{user.firstName}</td>
-                        <td>{user.lastName}</td>
-                        <td>{user.email}</td>
-                        <td>{user.position}</td>
-                        <td>{user.degree}</td>
-                        <td>{user.role}</td>
-                        <td><button onClick={() => handleDelete(user.id)} className='btn btn-danger'>delete</button></td>
+        <div className='overflow-auto'>
+            <Table striped bordered hover>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Email</th>
+                        <th>Position</th>
+                        <th>Degree</th>
+                        <th>Role</th>
+                        <th>Actions</th>
                     </tr>
-                ))}
-            </tbody>
-        </Table>
+                </thead>
+                <tbody>
+                    {users.map((user) => (
+                        <tr key={user.id}>
+                            <td>{user.id}</td>
+                            <td>{user.firstName}</td>
+                            <td>{user.lastName}</td>
+                            <td>{user.email}</td>
+                            <td>{user.position}</td>
+                            <td>{user.degree}</td>
+                            <td>{user.role}</td>
+                            <td><button onClick={() => handleDelete(user.id)} className='btn btn-danger'>delete</button></td>
+                        </tr>
+                    ))}
+                </tbody>
+            </Table>
+        </div>
     );
 }

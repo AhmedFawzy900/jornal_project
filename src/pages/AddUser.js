@@ -75,7 +75,7 @@ export default function AddUser() {
         role: userInfo.role,
       };
       console.log(item);
-      let result = await fetch("http://localhost:8000/api/register", {
+      let result = await fetch("https://eissa-group.com/api/register", {
         method: "POST",
         body: JSON.stringify(item),
         headers: {
@@ -156,8 +156,8 @@ export default function AddUser() {
                       </option>
                       <option value="managing_editor">Managing Editor</option>
                       <option value="assistant_editor">Assistant Editor</option>
-                      <option value="editor">Editor</option>
-                      <option value="reviewer">Reviewer</option>
+                      <option value="Editor">Editor</option>
+                      <option value="Reviewer">Reviewer</option>
                       <option value="user">User</option>
                     </Form.Select>
                   </Form.Group>

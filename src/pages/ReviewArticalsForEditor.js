@@ -10,7 +10,7 @@ export default function ReviewArticalsForEditor() {
     : navigate("/login");
   const [articals, setArticals] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:8000/api/getEditorReasearchs/" + userInfo.id, {
+    fetch("https://eissa-group.com/api/getEditorReasearchs/" + userInfo.id, {
       method: "post",
     }).then((res) => {
       res.json().then((data) => {

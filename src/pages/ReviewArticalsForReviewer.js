@@ -10,7 +10,7 @@ export default function ReviewArticalsForReviewer() {
     : navigate("/login");
   const [articals, setArticals] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:8000/api/getResearchsForReviewer/" + userInfo.id, {
+    fetch("https://eissa-group.com/api/getResearchsForReviewer/" + userInfo.id, {
       method: "post",
     }).then((res) => {
       res.json().then((data) => {

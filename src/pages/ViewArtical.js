@@ -28,7 +28,7 @@ export default function ViewArtical() {
 
   // fetch this element form api
   useEffect(() => {
-    fetch(`http://localhost:8000/api/researchs/${id}`).then((res) => {
+    fetch(`https://eissa-group.com/api/researchs/${id}`).then((res) => {
       res.json().then((data) => {
         console.log(data);
         setArtical(data);
@@ -38,7 +38,7 @@ export default function ViewArtical() {
         console.log(authorsArray);
 
         if (authorsArray.length > 0) {
-          fetch("http://localhost:8000/api/researchs/getAuthorsData", {
+          fetch("https://eissa-group.com/api/researchs/getAuthorsData", {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
@@ -58,7 +58,7 @@ export default function ViewArtical() {
       });
     });
     // fetch all users
-    fetch("http://localhost:8000/api/users").then((res) => {
+    fetch("https://eissa-group.com/api/users").then((res) => {
       res.json().then((data) => {
         console.log(data);
         setUsers(data);
@@ -73,7 +73,7 @@ export default function ViewArtical() {
       formData.append("associated_id", ass_editor);
       if (status == "underReview") {
         // console.log(ass_editor,id);
-        fetch("http://localhost:8000/api/assignResearchToAssEditor", {
+        fetch("https://eissa-group.com/api/assignResearchToAssEditor", {
           method: "POST",
           body: JSON.stringify({
             artical_id: id,
@@ -86,7 +86,7 @@ export default function ViewArtical() {
         }).then((res) => {
           res.json().then((data) => {
             console.log(data);
-            fetch("http://localhost:8000/api/submitDataToFeedback", {
+            fetch("https://eissa-group.com/api/submitDataToFeedback", {
               method: "POST",
               body: JSON.stringify({
                 artical_id: id,
@@ -103,7 +103,7 @@ export default function ViewArtical() {
           });
         });
 
-        fetch(`http://localhost:8000/api/researchs/updateStatus/${id}`, {
+        fetch(`https://eissa-group.com/api/researchs/updateStatus/${id}`, {
           method: "PUT",
           body: JSON.stringify({ status: status }),
           headers: {
@@ -117,7 +117,7 @@ export default function ViewArtical() {
           });
         });
       } else {
-        fetch(`http://localhost:8000/api/researchs/updateStatus/${id}`, {
+        fetch(`https://eissa-group.com/api/researchs/updateStatus/${id}`, {
           method: "PUT",
           body: JSON.stringify({
             status: status,
@@ -140,7 +140,7 @@ export default function ViewArtical() {
       formData.append("associated_id", ass_editor);
       if (status == "underReview") {
         // console.log(ass_editor,id);
-        fetch("http://localhost:8000/api/assignResearchToEditor", {
+        fetch("https://eissa-group.com/api/assignResearchToEditor", {
           method: "POST",
           body: JSON.stringify({
             artical_id: id,
@@ -153,26 +153,27 @@ export default function ViewArtical() {
         }).then((res) => {
           res.json().then((data) => {
             console.log(data);
-          });
-        });
-        fetch(`http://localhost:8000/api/updateFeedbackStatus/${id}`, {
-          method: "PUT",
-          body: JSON.stringify({
-            assistant_status: "Accepted",
-            assistant_comment: null,
-          }),
-          headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json",
-          },
-        }).then((res) => {
-          res.json().then((data) => {
-            console.log(data);
             navigate("/dashboard");
           });
         });
+        // fetch(`https://eissa-group.com/api/updateFeedbackStatus/${id}`, {
+        //   method: "PUT",
+        //   body: JSON.stringify({
+        //     assistant_status: "Accepted",
+        //     assistant_comment: null,
+        //   }),
+        //   headers: {
+        //     "Content-Type": "application/json",
+        //     Accept: "application/json",
+        //   },
+        // }).then((res) => {
+        //   res.json().then((data) => {
+        //     console.log(data);
+        //     navigate("/dashboard");
+        //   });
+        // });
       } else {
-        fetch(`http://localhost:8000/api/updateFeedbackStatus/${id}`, {
+        fetch(`https://eissa-group.com/api/updateFeedbackStatus/${id}`, {
           method: "PUT",
           body: JSON.stringify({
             assistant_status: status,
@@ -201,7 +202,7 @@ export default function ViewArtical() {
           setError("");
           setError("you must choose three reviewers");
         } else {
-          fetch("http://localhost:8000/api/assignedReviewers", {
+          fetch("https://eissa-group.com/api/assignedReviewers", {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
@@ -217,7 +218,7 @@ export default function ViewArtical() {
             .then((res) => {
               res.json().then((data) => {
                 console.log(data);
-                fetch(`http://localhost:8000/api/updateFeedbackStatus/${id}`, {
+                fetch(`https://eissa-group.com/api/updateFeedbackStatus/${id}`, {
                   method: "PUT",
                   body: JSON.stringify({
                     editor_status: "Accepted",
@@ -241,7 +242,7 @@ export default function ViewArtical() {
           console.log("assign to reviewers", reviewer1, reviewer2, reviewer3);
         }
       } else {
-        fetch(`http://localhost:8000/api/updateFeedbackStatus/${id}`, {
+        fetch(`https://eissa-group.com/api/updateFeedbackStatus/${id}`, {
           method: "PUT",
           body: JSON.stringify({
             editor_status: status,
@@ -260,7 +261,7 @@ export default function ViewArtical() {
       }
     } else if (userInfo.role == "Reviewer") {
       if (status != "underReview") {
-        fetch(`http://localhost:8000/api/getReviewersData/${id}`, {
+        fetch(`https://eissa-group.com/api/getReviewersData/${id}`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -268,11 +269,13 @@ export default function ViewArtical() {
           },
         }).then((res) => {
           res.json().then((data) => {
-            console.log(data);
+
+            console.log(data,"row of data ");
+            console.log(userInfo.id,"user id ");
             setReviewersData(data);
-            if (userInfo.id === data[0].reviewer_1_id) {
+            if (userInfo.id == data[0].reviewer_1_id) {
               console.log(status, reviewer_comment);
-              fetch(`http://localhost:8000/api/updateFeedbackStatus/${id}`, {
+              fetch(`https://eissa-group.com/api/updateFeedbackStatus/${id}`, {
                 method: "PUT",
                 headers: {
                   "Content-Type": "application/json",
@@ -293,8 +296,8 @@ export default function ViewArtical() {
                 .catch((err) => {
                   console.log(err);
                 });
-            } else if (userInfo.id === data[0].reviewer_2_id) {
-              fetch(`http://localhost:8000/api/updateFeedbackStatus/${id}`, {
+            } else if (userInfo.id == data[0].reviewer_2_id) {
+              fetch(`https://eissa-group.com/api/updateFeedbackStatus/${id}`, {
                 method: "PUT",
                 headers: {
                   "Content-Type": "application/json",
@@ -315,8 +318,8 @@ export default function ViewArtical() {
                 .catch((err) => {
                   console.log(err);
                 });
-            } else if (userInfo.id === data[0].reviewer_3_id) {
-              fetch(`http://localhost:8000/api/updateFeedbackStatus/${id}`, {
+            } else if (userInfo.id == data[0].reviewer_3_id) {
+              fetch(`https://eissa-group.com/api/updateFeedbackStatus/${id}`, {
                 method: "PUT",
                 headers: {
                   "Content-Type": "application/json",
@@ -344,83 +347,139 @@ export default function ViewArtical() {
     window.history.back();
   };
   function assignReviewer() {
-    fetch(`http://localhost:8000/api/getReviewersData/${id}`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-    }).then((res) => {
-      res.json().then((data) => {
-        console.log(data);
-        setReviewersData(data);
-        if (userInfo.id === data[0].reviewer_1_id) {
-          console.log(status, reviewer_comment);
-          fetch(`http://localhost:8000/api/updateFeedbackStatus/${id}`, {
-            method: "PUT",
-            headers: {
-              "Content-Type": "application/json",
-              Accept: "application/json",
-            },
-            body: JSON.stringify({
-              reviewer_1_status: "Accepted",
-              reviewer_1_comment: null,
-            }),
-          })
-            .then((res) => {
+    if (userInfo.role == "Reviewer") {
+      fetch(`https://eissa-group.com/api/getReviewersData/${id}`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+      }).then((res) => {
+        res.json().then((data) => {
+          console.log(data);
+          setReviewersData(data);
+          if (userInfo.id === data[0].reviewer_1_id) {
+            console.log(status, reviewer_comment);
+            fetch(`https://eissa-group.com/api/updateFeedbackStatus/${id}`, {
+              method: "PUT",
+              headers: {
+                "Content-Type": "application/json",
+                Accept: "application/json",
+              },
+              body: JSON.stringify({
+                reviewer_1_status: "Accepted",
+                reviewer_1_comment: null,
+              }),
+            })
+              .then((res) => {
+                res.json().then((data) => {
+                  console.log("1");
+                  console.log(status, reviewer_comment);
+                  console.log(data);
+                  navigate("/dashboard");
+                });
+              })
+              .catch((err) => {
+                console.log(err);
+              });
+          } else if (userInfo.id === data[0].reviewer_2_id) {
+            fetch(`https://eissa-group.com/api/updateFeedbackStatus/${id}`, {
+              method: "PUT",
+              headers: {
+                "Content-Type": "application/json",
+                Accept: "application/json",
+              },
+              body: JSON.stringify({
+                reviewer_2_status: "Accepted",
+                reviewer_2_comment: null,
+              }),
+            })
+              .then((res) => {
+                res.json().then((data) => {
+                  console.log("2");
+                  console.log(status, reviewer_comment);
+                  console.log(data);
+                  navigate("/dashboard");
+
+                });
+              })
+              .catch((err) => {
+                console.log(err);
+              });
+          } else if (userInfo.id === data[0].reviewer_3_id) {
+            fetch(`https://eissa-group.com/api/updateFeedbackStatus/${id}`, {
+              method: "PUT",
+              headers: {
+                "Content-Type": "application/json",
+                Accept: "application/json",
+              },
+              body: JSON.stringify({
+                reviewer_3_status: "Accepted",
+                reviewer_3_comment: null,
+              }),
+            }).then((res) => {
               res.json().then((data) => {
-                console.log("1");
                 console.log(status, reviewer_comment);
                 console.log(data);
+                navigate("/dashboard");
+
               });
-            })
-            .catch((err) => {
-              console.log(err);
             });
-        } else if (userInfo.id === data[0].reviewer_2_id) {
-          fetch(`http://localhost:8000/api/updateFeedbackStatus/${id}`, {
-            method: "PUT",
-            headers: {
-              "Content-Type": "application/json",
-              Accept: "application/json",
-            },
-            body: JSON.stringify({
-              reviewer_2_status: "Accepted",
-              reviewer_2_comment: null,
-            }),
-          })
-            .then((res) => {
-              res.json().then((data) => {
-                console.log("2");
-                console.log(status, reviewer_comment);
-                console.log(data);
-              });
-            })
-            .catch((err) => {
-              console.log(err);
-            });
-        } else if (userInfo.id === data[0].reviewer_3_id) {
-          fetch(`http://localhost:8000/api/updateFeedbackStatus/${id}`, {
-            method: "PUT",
-            headers: {
-              "Content-Type": "application/json",
-              Accept: "application/json",
-            },
-            body: JSON.stringify({
-              reviewer_3_status: "Accepted",
-              reviewer_3_comment: null,
-            }),
-          }).then((res) => {
-            res.json().then((data) => {
-              console.log(status, reviewer_comment);
-              console.log(data);
-            });
-          });
-        } else {
-          console.log("reviewer not found");
-        }
+          } else {
+            console.log("reviewer not found");
+          }
+        });
       });
-    });
+    }else if (userInfo.role == "assistant_editor") {
+      fetch(`https://eissa-group.com/api/updateFeedbackStatus/${id}`, {
+          method: "PUT",
+          body: JSON.stringify({
+            assistant_status: "Accepted",
+            assistant_comment: null,
+          }),
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+        }).then((res) => {
+          res.json().then((data) => {
+            console.log(data);
+            navigate("/dashboard");
+          });
+        });
+    }else if (userInfo.role == "managing_editor") {
+        fetch(`https://eissa-group.com/api/researchs/updateStatus/${id}`, {
+          method: "PUT",
+          body: JSON.stringify({ status: "Accepted" }),
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+        }).then((res) => {
+          res.json().then((data) => {
+            console.log(data);
+            navigate("/dashboard");
+          });
+        });
+      
+    }else if(userInfo.role == "Editor"){
+      fetch(`https://eissa-group.com/api/updateFeedbackStatus/${id}`, {
+                  method: "PUT",
+                  body: JSON.stringify({
+                    editor_status: "Accepted",
+                    editor_comment: null,
+                  }),
+                  headers: {
+                    "Content-Type": "application/json",
+                    Accept: "application/json",
+                  },
+                }).then((res) => {
+                  res.json().then((data) => {
+                    console.log(data);
+                    navigate("/dashboard");
+                  });
+                });
+    }
   }
   return (
     <div className=" row abstracPage">
@@ -466,7 +525,7 @@ export default function ViewArtical() {
             <Link
               className="tag_a"
               target="_blank"
-              to={`http://localhost:8000/${artical.fileLink}`}
+              to={`https://eissa-group.com/${artical.fileLink}`}
             >
               <i class=" absIcon fa-solid fa-file-pdf"></i>PDF
             </Link>
@@ -487,7 +546,7 @@ export default function ViewArtical() {
               Reject
             </button>
             <button
-              className="btn btn-secondary my-1 mx-2 "
+              className="btn btn-secondary my-1 mx-2"
               onClick={() => {
                 setStatus("resubmit");
                 setReviewer_comment("");
@@ -495,17 +554,16 @@ export default function ViewArtical() {
             >
               Resubmit
             </button>
-            {userInfo.role == "Reviewer" ? (
+            
               <button
-                className="btn btn-success my-1"
+                className="btn btn-success my-1 mx-2"
                 onClick={() => {
-                  setStatus("underReview");
                   assignReviewer();
                 }}
               >
                 Accept
               </button>
-            ) : (
+            
               <button
                 className="btn btn-success my-1"
                 onClick={() => {
@@ -514,7 +572,6 @@ export default function ViewArtical() {
               >
                 Assign
               </button>
-            )}
 
             {error && <Alert className="alert-danger">{error}</Alert>}
             {status == "underReview" ? (
